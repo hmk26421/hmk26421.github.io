@@ -1,0 +1,519 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>精读论文 | Hmk's blog</title><meta name="author" content="Mk Hao,hmk26421@163.com"><meta name="copyright" content="Mk Hao"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="论文精读8月13日，我向北京邮电大学的郑老师发送了一封保研自荐邮件，当天便看到邮件显示“已读”，却迟迟没有收到回复。当时心里难免有些失落，默默觉得以自己的目前的条件，或许还达不到北邮的要求，便暂时将这件事搁置了。 没曾想，8月16日我在西安参加物联网设计大赛区域赛时，突然收到了郑老师课题组发来的考核通知，这份意外之喜让我又惊又喜。原本计划在区域赛结束后在西安游玩的安排直接取消，毕竟这次保研考核的机">
+<meta property="og:type" content="article">
+<meta property="og:title" content="精读论文">
+<meta property="og:url" content="https://hmk26421.github.io/2025/08/21/int-rd-pa/index.html">
+<meta property="og:site_name" content="Hmk&#39;s blog">
+<meta property="og:description" content="论文精读8月13日，我向北京邮电大学的郑老师发送了一封保研自荐邮件，当天便看到邮件显示“已读”，却迟迟没有收到回复。当时心里难免有些失落，默默觉得以自己的目前的条件，或许还达不到北邮的要求，便暂时将这件事搁置了。 没曾想，8月16日我在西安参加物联网设计大赛区域赛时，突然收到了郑老师课题组发来的考核通知，这份意外之喜让我又惊又喜。原本计划在区域赛结束后在西安游玩的安排直接取消，毕竟这次保研考核的机">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hmk26421.github.io/img/profile.jpg">
+<meta property="article:published_time" content="2025-08-21T03:42:00.000Z">
+<meta property="article:modified_time" content="2025-08-21T03:57:11.634Z">
+<meta property="article:author" content="Mk Hao">
+<meta property="article:tag" content="学习记录">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hmk26421.github.io/img/profile.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "精读论文",
+  "url": "https://hmk26421.github.io/2025/08/21/int-rd-pa/",
+  "image": "https://hmk26421.github.io/img/profile.jpg",
+  "datePublished": "2025-08-21T03:42:00.000Z",
+  "dateModified": "2025-08-21T03:57:11.634Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Mk Hao",
+      "url": "https://hmk26421.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="../../../../img/logo.jpg"><link rel="canonical" href="https://hmk26421.github.io/2025/08/21/int-rd-pa/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="../../../../css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"https://cdn.jsdelivr.net/npm/hexo-theme-butterfly@latest","preload":true,"top_n_per_article":3,"unescape":true,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'medium_zoom',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '精读论文',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(../../../../img/bg.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="../img/profile.jpg" onerror="this.onerror=null;this.src='../img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="../archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="../tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/"><div class="headline">分类</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="../index.html"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="../categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="../tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="../archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="../person/"><i class="fa-fw fa fa-person"></i><span> 人物</span></a></li><li><a class="site-page child" href="../photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="../music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="../movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li><li><a class="site-page child" href="../book/"><i class="fa-fw fa fa-book"></i><span> 书籍</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="../links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="../comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="../about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="../../../../index.html"><img class="site-icon" src="../../../../img/profile.jpg" alt="Logo"><span class="site-name">Hmk's blog</span></a><a class="nav-page-title" href="../../../../index.html"><span class="site-name">精读论文</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="../index.html"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="../categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="../tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="../archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="../person/"><i class="fa-fw fa fa-person"></i><span> 人物</span></a></li><li><a class="site-page child" href="../photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="../music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="../movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li><li><a class="site-page child" href="../book/"><i class="fa-fw fa fa-book"></i><span> 书籍</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="../links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="../comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="../about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">精读论文</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-08-21T03:42:00.000Z" title="发表于 2025-08-21 11:42:00">2025-08-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-08-21T03:57:11.634Z" title="更新于 2025-08-21 11:57:11">2025-08-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="../../../../categories/%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0/">日常学习</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="../../../../categories/%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0/%E8%AF%BB%E8%AE%BA%E6%96%87/">读论文</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">7.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>25分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="论文精读"><a href="#论文精读" class="headerlink" title="论文精读"></a>论文精读</h1><p>8月13日，我向北京邮电大学的郑老师发送了一封保研自荐邮件，当天便看到邮件显示“已读”，却迟迟没有收到回复。当时心里难免有些失落，默默觉得以自己的目前的条件，或许还达不到北邮的要求，便暂时将这件事搁置了。</p>
+<p>没曾想，8月16日我在西安参加物联网设计大赛区域赛时，突然收到了郑老师课题组发来的考核通知，这份意外之喜让我又惊又喜。原本计划在区域赛结束后在西安游玩的安排直接取消，毕竟这次保研考核的机会显然更为珍贵。于是我立刻调整行程，在8月17日开启了“极限回校”模式，马不停蹄地赶回学校准备接下来的考核。 </p>
+<h2 id="精读过程"><a href="#精读过程" class="headerlink" title="精读过程"></a>精读过程</h2><p>本文提出无人机辅助LoRa网络方向性感知信道接入新方法PreLoRa，旨在最大化地空链路吞吐量。通过研究RSS与收发机相对位置的关联，构建量化方向性对地空链路影响的<strong>环空模型</strong>；基于该模型，PreLoRa可预测无人机网关短期内各配置区域驻留时间，并周期性为地面节点分配最优传输配置计划。评估显示，相较基线方法，其数据收集吞吐量最高提升65.5%。 </p>
+<ol>
+<li><p>吞吐量（throughput）：<br>公式1： 吞吐量&#x3D;并发数&#x2F;平均响应时间<br>公式2： 吞吐量&#x3D;请求总数&#x2F;总时长</p>
+</li>
+<li><p>LoRa的调制参数：<br>SF：扩频因子，对码片数量取Log2对数后的数字；<br>CR：编码速率，有效编码率为4&#x2F;(4+CR)；<br>BW：调制带宽，当前LoRa物理层支持的带宽范围从7.8kHz到500kHz；<br>NF：无线电噪声系数（单位：dB）。</p>
+</li>
+</ol>
+<h3 id="BACKGROUND-AND-MOTIVATION"><a href="#BACKGROUND-AND-MOTIVATION" class="headerlink" title="BACKGROUND AND MOTIVATION"></a>BACKGROUND AND MOTIVATION</h3><h4 id="BACKGROUND"><a href="#BACKGROUND" class="headerlink" title="BACKGROUND"></a>BACKGROUND</h4><p>LoRa等低功耗广域网（LPWAN）凭借长距、低耗、高抗干扰优势，广泛应用于森林、水库等场景。为优化感知范围，携带LoRa模块的传感器节点稀疏部署于野外，收集非实时数据存储于存储卡，通过睡眠&#x2F;唤醒模式节能（仅数据收发时唤醒）。配备LoRa网关的无人机沿规划路径定期或不定期飞行收集数据，地面节点感知无人机到达后，因可见时间短需快速上传数据；无人机脱离范围后，上传终止，节点重回睡眠。 </p>
+<p><img src="1.png" alt="LoRa网络"></p>
+<h4 id="MOTIVATION"><a href="#MOTIVATION" class="headerlink" title="MOTIVATION"></a>MOTIVATION</h4><p>现场测量发现无人机通信存在“越近性能越差”的反常现象：200米高度的无人机网关对50米内节点的数据采集效率仅55.8%，远低于最优水平，且随高度上升问题加剧，形成节点上方数据收集空白。</p>
+<p>这一现象源于地空通信中被忽略的全向天线方向性影响——常用全向偶极天线能量集中于水平方向，天线上下方发射功率极弱。当无人机水平靠近节点时，接收天线进入发射天线上方辐射薄弱区，导致接收信号强度衰减、传输失败及吞吐量下降。</p>
+<p>为评估该问题，实验设置如下：无人机网关以1m&#x2F;s速度在100m高度直线飞行300m，与同路径移动的地面网关对比；路径中点部署地面LoRa节点，按SF&#x3D;7、BW&#x3D;250kHz参数持续发包，每10秒监测一次吞吐量。 </p>
+<p><img src="5.png" alt="实验采集图"></p>
+<p>图3显示，与地面移动网关相比，无人机网关靠近节点时吞吐量显著下降，即便水平位置相近，地空通信吞吐量仅为地地通信的52.9%。我们在100m、150m、200m高度重复实验图4，可见高度越高性能退化越严重——200m高度无人机位于节点正上方时，吞吐量仅为地面网关的12.1%，节点周边70m范围内吞吐量降幅超40%。不同于地对地通信“越近质量越好”的规律，地空通信中无人机越靠近节点，链路质量反而越差。</p>
+<p>进一步记录100m高度飞行时的接收信号强度发现：收发水平距离减小时，RSS会骤降至-20dBm，且近距离处信号波动更大，导致链路不稳定。这正是网关靠近地面节点时吞吐量大幅下降的原因。<br>同时作者重复了实验飞行高度为150米和不同的SF。结果如图5</p>
+<p><img src="2.png" alt="图3（a）"></p>
+<p><img src="3.png" alt="图3（b）"></p>
+<p><img src="4.png" alt="图3（d）"></p>
+<h3 id="DIRECTIVITY-AWARE-LINK-MODEL"><a href="#DIRECTIVITY-AWARE-LINK-MODEL" class="headerlink" title="DIRECTIVITY-AWARE LINK MODEL"></a>DIRECTIVITY-AWARE LINK MODEL</h3><h4 id="Directivity-Model"><a href="#Directivity-Model" class="headerlink" title="Directivity Model"></a>Directivity Model</h4><p>方向性指天线在特定方向辐射或接收电磁波的能力，出于通信距离和覆盖对称性考虑，传感器网络天线多垂直于地面放置，因此方向性对传输的影响取决于收发器相对位置。当天线移动到地面天线上方时，发射和接收能力下降，接收能量会随之减少。</p>
+<p>方向性系数：对于一个理想的圆场型天线（或者叫各向同性电线，全方向天线）来说，它的辐射功率在各个方向上是相等的。假设给定方向为$$ (\theta_0,\varphi_0) $$ ，某天线在给定方向的辐射强度 $$ U(\theta_0,\varphi_0) $$ 或辐射密度$$ S_M $$  与理想点源天线 $$ U_0(\theta_0,\varphi_0) $$ 之比，用公式表示为 </p>
+<p>$$<br>D(\theta_0,\varphi_0) &#x3D; \frac{U(\theta_0,\varphi_0)}{U_0(\theta_0,\varphi_0)}<br>\tag{1}<br>$$</p>
+<p>接下来看一下文中的方向性系数公式，<em>U</em>(<em>θ</em>) 表示天线在方向 <em>θ</em> 上的辐射强度，分母是把 <em>U</em>(<em>θ</em>) 在整个上半空间（<em>θ</em> 从 0 到 <em>π</em>）做立体角积分后归一化得到的平均辐射强度，于是 <em>D</em>(<em>θ</em>) 的物理意义就是：在 <em>θ</em> 方向上的辐射强度与“平均辐射强度”的比值，用来说明能量在该方向上集中的程度<br>$$<br>D(\theta)&#x3D;\frac{U(\theta)}<br>{\displaystyle\frac{1}{2}\int_{0}^{\pi} U(\theta)\sin\theta, d\theta}<br>\tag{2}<br>$$</p>
+<p>文中第一句话就给出了对应的定义，和我在网上搜到的有出入，这里以文中给出定义作为标准</p>
+<blockquote>
+<p>Directivity coefficient is a parameter used to quantify the concentration of energy radiated by an antenna in a given direction.</p>
+</blockquote>
+<p>对于一根理想半波偶极子（whip antenna），其辐射强度为</p>
+<p>$$<br>U(\theta)&#x3D;\frac{E_0^2}{2\eta_0}\sin^2\theta\tag{3}<br>$$<br>其中$$E_0$$为幅度常数，$$\eta_0$$是自由空间波阻抗（≈377 Ω）。把它代入式 (2) 可算得$$D(\theta)&#x3D;\frac{3}{2}\sin^2\theta$$</p>
+<p><img src="7.png"></p>
+<ol>
+<li><p>对于发射天线，最大辐射方向与到接收天线方向之间的夹角为$$\theta_t&#x3D;\frac{\pi}{2}- \theta_p$$</p>
+</li>
+<li><p>对于接收天线，同样分析可得夹角为$$\theta_r&#x3D;\frac{\pi}{2}+ \theta_p$$</p>
+</li>
+</ol>
+<p>$$<br>D(\theta_t)&#x3D;\frac{U(\theta_t)}<br>{\displaystyle\frac{1}{2}\int_{0}^{\pi} U(\theta_t)\sin\theta_t, d\theta_t}&#x3D;<br>\frac{\frac{1}{2}\sin^2\theta_t}<br>{\displaystyle\frac{1}{2}\int_{0}^{\pi} \frac{1}{2}\sin^2\theta_t\sin\theta_t, d\theta_t}<br>&#x3D;\frac{3}{2}\sin^2\theta_t<br>&#x3D;\frac{3}{2}\sin^2!\left(\frac{\pi}{2}-\theta_{\mathrm{p}}\right)<br>&#x3D;\frac{3}{2}\cos^2\theta_{\mathrm{p}}<br>\tag{4}<br>$$</p>
+<p>同样可得$$D(\theta_r)&#x3D;\frac{3}{2}\cos^2\theta_{\mathrm{p}}$$</p>
+<p><strong>Friis 传输公式给出接收功率</strong></p>
+<p>$$<br>P_{\mathrm{rx}}&#x3D;<br>P_{\mathrm{tx}}\frac{\lambda^2}{(4\pi d)^2},<br>\eta_{\mathrm{r}}\eta_{\mathrm{t}},<br>D(\theta_{\mathrm{t}})D(\theta_{\mathrm{r}}),<br>\tag{5}<br>$$</p>
+<ol>
+<li>$$P_{\mathrm{tx}}$$ ：发射功率；</li>
+<li>$$\lambda$$：信号波长；</li>
+<li>$$d&#x3D;\sqrt{h^2+l^2}$$：收发天线之间的直线距离；</li>
+<li>$$\eta_{\mathrm{t}}, \eta_{\mathrm{r}}$$：发射、接收天线的效率（小于 1 的常数）</li>
+</ol>
+<h1 id="把刚才得到的-D-theta-t-和-D-theta-r-代入得到：-P-mathrm-rx-P-mathrm-tx-frac-lambda-2-4-pi-d-2-eta-mathrm-r-eta-mathrm-t-left-frac-3-2-cos-2-theta-mathrm-p-right-2"><a href="#把刚才得到的-D-theta-t-和-D-theta-r-代入得到：-P-mathrm-rx-P-mathrm-tx-frac-lambda-2-4-pi-d-2-eta-mathrm-r-eta-mathrm-t-left-frac-3-2-cos-2-theta-mathrm-p-right-2" class="headerlink" title="把刚才得到的$$D(\theta_t)$$和$$D(\theta_r)$$代入得到：$$P_{\mathrm{rx}}&#x3D;P_{\mathrm{tx}}\frac{\lambda^2}{(4\pi d)^2},\eta_{\mathrm{r}}\eta_{\mathrm{t}},\left(\frac{3}{2}\cos^2\theta_{\mathrm{p}}\right)^2"></a>把刚才得到的$$D(\theta_t)$$和$$D(\theta_r)$$代入得到：<br>$$<br>P_{\mathrm{rx}}&#x3D;<br>P_{\mathrm{tx}}\frac{\lambda^2}{(4\pi d)^2},<br>\eta_{\mathrm{r}}\eta_{\mathrm{t}},<br>\left(\frac{3}{2}\cos^2\theta_{\mathrm{p}}\right)^2</h1><p>P_{\mathrm{tx}}\frac{9\lambda^2\eta_r\eta_t}{4(4\pi d)^2},<br>\cos^4\theta_{\mathrm{p}},<br>\tag{6}<br>$$</p>
+<p>整理常数项<br>$$<br>P’&#x3D;<br>P_{\mathrm{tx}}\frac{9\lambda^2\eta_{\mathrm{r}}\eta_{\mathrm{t}}}{4(4\pi)^2},d&#x3D;\sqrt{h^2+l^2},<br>\cos(\theta_p)&#x3D;\frac{l}{\sqrt{h^2+l^2}}<br>\tag{7}<br>$$<br>最后可以得到RSS，即接收功率<br>$$<br>P_{\mathrm{rx}}(h,l)&#x3D;<br>P’,\frac{\cos^4\theta_{\mathrm{p}}}{d^{2}}<br>&#x3D;P’,\frac{l^4}{(h^2+l^2)^3}.<br>\tag{8}<br>$$</p>
+<p>由式(8)我们知当飞行高度已知的情况下，可以仅基于UAV与地面节点之间的水平距离来估计接收信号质量。作者对式(8)中的$$\frac{l^4}{(h^2+l^2)^3}$$定义为位置损失系数L，这里作者绘制L在不同飞行高度时作为水平距离的函数，如图Fig.8，随着水平距离的减小，L曲线增大，表明由于收发器之间的传输距离缩短，RSS上升。然而，当水平距离接近零时，曲线急剧下降，在原点附近形成信号空白。</p>
+<p><img src="8.png" alt="Coefficient L at different altitudes"></p>
+<p>至此，作者的方向模型已经提出，接下来就是作者实验验证其有效性，让固定100m高度的无人机在不同的水平距离悬停一分钟来测量RSS。发射天线使用的设置为SF&#x3D;7、BW&#x3D;125 kHz、CR&#x3D;4&#x2F;5和PT &#x3D; 0 dBm。这里的盒图是如何绘制的作者没有在文中提到，但是我在网上搜索出来可能的绘制结果：</p>
+<blockquote>
+<p>把这一分钟内的航迹按 <strong>10m左右间隔</strong> 切成若干个“空间 bin”。落在同一个 bin 里的采样点被认为处于“同一相对位置”。在每个 bin 内，把属于该 bin 的全部 LoRa 包 RSS（线性功率平均后再转 dBm）做一次平均，得到一个“bin 均值”，获得足够多包（≥ n 个），就用这些包的 RSS 集合画出盒图的 <strong>中位数、四分位距、极值</strong>。这里作者也解释了为什么近距离的结果偏离理论模型，由于制造工艺的原因，天线顶部仍然有轻微的能量溢出，没有达到理论上的全能量抑制。至此，作者已经通过实际测量验证了其提出的方向理论模型的正确性。</p>
+</blockquote>
+<p><img src="9.png"></p>
+<h4 id="Annulus-Model"><a href="#Annulus-Model" class="headerlink" title="Annulus Model"></a>Annulus Model</h4><p>环形模型如图10所示。环形模型定义了环形传输区域。每个环具有内边界和外边界，并且整个模型由多个重叠的同心环组成。只有环所覆盖的区域被认为是对应SF的可靠传输区域，而环外部的可靠性不能得到保证。此外，较小SF的区域较窄，并且嵌套在较大SF的区域内。较小的SF需要更好的传输条件，需要收发器之间更严格的相对定位。距离太近或太远都可能导致传输失败。</p>
+<p><img src="10.png"></p>
+<p>通过确定内部和外部的水平距离边界的每个SF的可靠的传输区域，开始与解码每个SF所需的最小SNR的分析。在加性白色高斯噪声信道中，符号错误概率为：<br>$$<br>P_b(SF, SNR) &#x3D; 0.5 \cdot Q!\Bigl(<br>\sqrt{10^{\frac{\mathsf{SNR}}{10}}\cdot 2^{\mathsf{SF}+1}}<br>-\sqrt{1.386\cdot SF+1.154}<br>\Bigr) \tag{9}<br>$$<br>其中Q()是标准正态分布的尾函数。一般认为，可靠的传输需要保证Pb低于$10^{-6}$，将$P_b$等于$10^{-6}$代入，就可以获得每个SF的最小解码SNR ,$$\mathsf{SNR}<em>{\min}^{\mathsf{SF}}$$,。给定$$\mathsf{SNR}</em>{\min}^{\mathsf{SF}}$$，我们可以估计相应的最小$$\mathsf{RSS}_{\min}^{\mathsf{SF}}$$</p>
+<p>：<br>$$<br>\mathsf{RSS}<em>{\min}^{\mathsf{SF}} &#x3D; P</em>{\text{noise}} \cdot 10^{,\mathsf{SNR}<em>{\min}^{\mathsf{SF}}&#x2F;10}<br>\tag{10}<br>$$<br>由$P</em>{\mathrm{rx}}(h,l)&#x3D;\mathsf{RSS}<em>{\min}^{\mathsf{SF}}$式(8)和式(10)可得<br>$$<br>L</em>{\text{THR}}^{\text{SF}}&#x3D;\frac{\text{RSS}<em>{\min}^{\text{SF}}}{P’}<br>    &#x3D;\frac{P</em>{\text{noise}}\cdot 10^{,\text{SNR}_{\min}^{\text{SF}}&#x2F;10}}{P’}<br>\tag{11}<br>$$</p>
+<p>位置损失系数阈值表示每个SF的可靠传输阈值。根据方向性模型，给定接收器位置处的损耗系数的值指示其可接收的信号强度。如果当前位置的系数低于给定SF的阈值，则SF被认为不适合于传输，因为它不能满足成功传输的最小RSS要求。传输类似地，基于接收机的高度和系数阈值，我们可以确定满足这些阈值的水平距离，即每个SF配置的水平距离边界。如图11所示，每个SF的阈值与某个高度的损耗系数函数曲线产生对应的交点，交点的水平坐标为边界值。较小的值$l_{in}^{SF}$是环的内边界，较大的值$l_{out}^{SF}$是环的外边界，并且边界之间的水平范围[$l_{in}^{SF}$，$l_{out}^{SF}$]是当前SF配置的传输区域,当接收机飞行高度从150 m降低到120 m时，原来的环空区域扩展到虚线所示的区域，即内水平边界减小，外水平边界增大。</p>
+<p><img src="11.png"></p>
+<p>由于定位损失系数是高度相关的，当接收机的高度改变时，系数L的函数曲线从蓝线更新到红线。新生成的交点的水平坐标范围[$l_{in}^{SF}$，$l_{out}^{SF}$]大于原始水平范围[$l_{in}^{SF\prime}$，$l_{out}^{SF\prime}$]，导致环形区域的扩展。相反，如果接收器的高度从低到高增加，则环的范围将变得更窄。</p>
+<p><img src="12.png"></p>
+<h3 id="DESIGN"><a href="#DESIGN" class="headerlink" title="DESIGN"></a>DESIGN</h3><h4 id="Model-Establishment"><a href="#Model-Establishment" class="headerlink" title="Model Establishment"></a>Model Establishment</h4><h5 id="Nodes-Locations-Estimation"><a href="#Nodes-Locations-Estimation" class="headerlink" title="Nodes Locations Estimation"></a>Nodes Locations Estimation</h5><p>节点位置通过无人机上行链路 RSS 测量确定：以起飞点为原点，无人机接收分组 i 时坐标为（xi，yi），结合预设参数 PSSi、RSSi 及式（11）（8）估计水平距离 li。定位通过多圆交点求解：每接收新分组以无人机坐标为圆心、li 为半径画圆，随数据积累交点逐渐密集，对密集交点取平均得节点位置（x0，y0），误差随 RSS 数据增多减小。</p>
+<h5 id="Model-Parameter-Update"><a href="#Model-Parameter-Update" class="headerlink" title="Model Parameter Update"></a>Model Parameter Update</h5><p>环空模型依赖随无人机运动变化的损失系数 L 和阈值 LSF THR。给定高度时，L 为水平距离的已知函数，全高度范围 L 值预先计算存储，高度变化时可从查找表 O（1）检索。阈值更新中，按式（11）仅需更新 PNoise：因短时间环境稳定，通过滑动窗口提取最新分组样本，以 O（1）开销累积 RSS&#x2F;SNR 样本计算平均噪声功率估计 PNoise。参数动态更新使链路模型适配无人机运动。 </p>
+<h5 id="Boundary-Estimation"><a href="#Boundary-Estimation" class="headerlink" title="Boundary Estimation:"></a>Boundary Estimation:</h5><p>利用 PNoise 可得各 SF 的可靠传输阈值 L THR，构建环形模型需其对应的两个水平距离。为避免方程（3）求解的高开销，采用二叉搜索在固定定义域内 O（1）快速求解。L 曲线呈单峰状，峰值 L Max 前后分增减区间，其对应距离 l max 可预先获取；基于该峰值距离，在曲线两侧执行二叉搜索即得 L THR 对应的水平边界。实际存储表含不同高度的 L 峰值 L Max 及其对应距离 l max。</p>
+<h4 id="Transmission-Scheduling"><a href="#Transmission-Scheduling" class="headerlink" title="Transmission Scheduling"></a>Transmission Scheduling</h4><p>确定SF配置，这里作者将无人机在短时间内的运动视为具有恒定飞行高度的匀速直线运动，给定无人机在ping时段期间的飞行时间，其中Tping是ping时隙的时间长度，无人机在该时段期间的坐标可以表示为（xs+vx×t，ys+vy×t），x0和y0由Nodes Locations Estimation中估算获得，即可获得对应的两点间欧氏距离。</p>
+<p>接下来是计算确定传输方案</p>
+<ol>
+<li>计算 UAV 进入&#x2F;离开每个 SF 区域的时刻<br>通过计算可以获得进入和离开每个SF配置区域时的时间<br>$$<br>解得的驻留区间记为<br>\Delta t^{\mathrm{SF}&#x3D;j}<br>\in<br>\bigl[t_{\mathrm{start}}^{\mathrm{SF}&#x3D;j},; t_{\mathrm{end}}^{\mathrm{SF}&#x3D;j}\bigr],<br>\quad<br>j\in{7,8,9,10,11,12}.<br>$$<br>PreLoRa使用组合方案选择SF配置，而不是选择特定的SF。即，基于每个配置的导出的传输时间间隔来开发组合的传输定时序列。当时间间隔重叠时，PreLoRa优先考虑重叠时段内的较低SF，以优化数据传输速率。<br>在 <strong>下一个 ping 周期 T 内</strong>，预判 UAV 会依次经过哪些 SF 的 annulus 区域，从而给节点排一张 <strong>“何时发、用哪个 SF、发几包”</strong> 的调度表</li>
+</ol>
+<hr>
+<ol start="2">
+<li>把 6 个 SF 的区间合并成一条 <strong>无冲突时序</strong></li>
+</ol>
+<p>当多个 SF 的区间重叠时，<strong>优先使用更小的 SF</strong>（数据率高）。</p>
+<p><strong>合并方法</strong>：把 12 个端点按时间排序，遇到重叠就截断，得到一条 <strong>单调不降</strong> 的调度序列  0 &lt; τ₁ &lt; τ₂ &lt; … &lt; τ_m &lt; T  每段 <code>(τ_k, τ_&#123;k+1&#125;]</code> 都唯一对应一个最优 SF</p>
+<hr>
+<ol start="3">
+<li>给每段区间算 <strong>包长</strong></li>
+</ol>
+<p><strong>在已经知道 UAV 在每个 SF 区域会停留多久之后，决定“具体发几包、每包多长”，才能把这有限的停留时间充分利用。</strong></p>
+<p>LoRa数据包的前导码通常由8个符号的预前导码和4.25个符号的强制前导码组成，该强制前导码具有2个符号的同步字和2.25个符号的SFD</p>
+<p>LoRa 包持续时间:<br>$$<br>T_p^{j}(L) &#x3D; \Bigl(12.25 + N_s^{j}(L)\Bigr)\frac{2^{j}}{\text{BW}}<br>\tag{12}<br>$$</p>
+<p>其中</p>
+<p>$$<br>N_s^{j}(L)&#x3D;8+\max!\Bigl(0,;<br>4\text{CR}\Bigl\lceil\frac{8L-4j+28+16\text{CRC}}{4j}\Bigr\rceil\Bigr)<br>\tag{13}<br>$$</p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>含义</th>
+<th>典型取值&#x2F;单位</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$N_s(L)$</td>
+<td><strong>整包的有效负载符号数</strong>（不含前导）</td>
+<td>整数符号</td>
+</tr>
+<tr>
+<td>$L$</td>
+<td><strong>用户净荷长度</strong></td>
+<td>字节 (B)</td>
+</tr>
+<tr>
+<td>SF</td>
+<td>扩频因子</td>
+<td>7–12</td>
+</tr>
+<tr>
+<td>CR</td>
+<td>编码率分母</td>
+<td>1…4（对应 4&#x2F;5…4&#x2F;8）</td>
+</tr>
+<tr>
+<td>CRC</td>
+<td>是否启用 CRC</td>
+<td>0&#x2F;1</td>
+</tr>
+</tbody></table>
+<p>Step 1  计算 <strong>满包时长</strong><br>把最大净荷 255 B 代入得<br>$$<br>T_{p,\max}^{\text{SF}} &#x3D; T_p(255)<br>\tag{14}<br>$$</p>
+<p>Step 2  计算 <strong>满包数量</strong><br>$$<br>N_{\text{full}} &#x3D; \Bigl\lfloor\frac{T_{\text{dwell}}^{\text{SF}}}{T_{p,\max}^{\text{SF}}}\Bigr\rfloor<br>\tag{15}<br>$$</p>
+<p>Step 3  计算 <strong>尾包剩余时间</strong><br>$$<br>T_{\text{tail}} &#x3D; T_{\text{dwell}}^{\text{SF}} - N_{\text{full}}\cdot T_{p,\max}^{\text{SF}}<br>\tag{16}<br>$$</p>
+<p>Step 4  反解 <strong>尾包最大净荷</strong><br>令 $T_p(L_{\text{tail}})&#x3D;T_{\text{tail}}$，代入并反解 $L_{\text{tail}}$。将公式13反解得到如下公式：<br>$$<br>L_{\text{tail}} &#x3D; \Bigl\lfloor<br>  \frac{1}{8}\Bigl[<br>    \frac{\text{BW}\cdot T_{\text{tail}}}{2^{\text{SF}}} -12.25<br>  \Bigr]\cdot 4,\text{SF};-;\text{SF}+11<br>\Bigr\rfloor<br>\tag{17}<br>$$</p>
+<h4 id="Air-Ground-to-Ground-Air-Communicator"><a href="#Air-Ground-to-Ground-Air-Communicator" class="headerlink" title="Air&#x2F;Ground-to-Ground&#x2F;Air Communicator"></a>Air&#x2F;Ground-to-Ground&#x2F;Air Communicator</h4><p>无人机网关进入收集区域后，按预定义时间定期广播含时间戳的信标；休眠节点打开信标侦听窗口接收信标，窗口会随上次同步后时长增加而扩展以防遗漏。节点接收信标后，基于时间戳向网关发送自身时间，并周期性开启接收窗口（ping 时隙），用于接收网关依据信标指定时间建立的传输计划，通过遵循计划中的定时序列 T 和分组序列 PSF 可最大化上传效率。</p>
+<p>具体而言，节点同步后激活并发送含 ID 的 ACK 分组，告知网关准备就绪，这些数据包提供的 RSS 和 SNR 样本可帮助网关初始估计节点位置并建立环形模型。在信标周期（当前与下一个信标接收间隔）内，网关通过节点的下行链路 ping 时隙，发送即将到来的 ping 周期传输计划；ping 周期可实时调整，若无人机飞行状态剧变则缩短周期以适应链路波动。当 ping 时隙临近时，网关根据无人机当前状态和上行测量值更新环形模型，确定各节点传输计划并通过 ping 时隙分配。节点接收计划后，按无人机移动时序切换传输配置并上传数据。网关接收数据时持续记录 RSS 和 SNR，用于及时更新模型与计划。</p>
+<p>当无人机离开通信范围，节点经多次侦听失败后进入休眠，周期性唤醒等待网关下次到达。</p>
+<p><img src="13.png"></p>
+<table>
+<thead>
+<tr>
+<th align="center">时间轴顺序</th>
+<th align="center">图中元素</th>
+<th align="center">动作</th>
+<th align="center">关键信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">①</td>
+<td align="center">UAV 的红色竖条 “Beacon”</td>
+<td align="center">网关周期性广播 <strong>Beacon</strong></td>
+<td align="center">带时间戳，供节点同步</td>
+</tr>
+<tr>
+<td align="center">②</td>
+<td align="center">节点灰色条 → 绿色竖条 “ACK”</td>
+<td align="center">节点收到 Beacon 后醒来，<strong>立即发 ACK</strong></td>
+<td align="center">内附节点 ID、RSSI&#x2F;SNR</td>
+</tr>
+<tr>
+<td align="center">③</td>
+<td align="center"></td>
+<td align="center">UAV 收到 ACK 后离线运算</td>
+<td align="center">用 ACK 的 RSSI 更新 annulus 模型</td>
+</tr>
+<tr>
+<td align="center">④</td>
+<td align="center">UAV 的浅黄色竖条 “Ping Slot”</td>
+<td align="center">网关下发 <strong>Transmission Plan</strong></td>
+<td align="center">告诉节点：后面 10 s 内何时发、用哪个 SF、发多长</td>
+</tr>
+<tr>
+<td align="center">⑤</td>
+<td align="center">节点Packet</td>
+<td align="center">节点按表 <strong>连续发数据包</strong></td>
+<td align="center">每包长度 &amp; SF 已预先算好</td>
+</tr>
+<tr>
+<td align="center">⑥</td>
+<td align="center">UAV 灰色虚线后</td>
+<td align="center">UAV 飞出通信范围</td>
+<td align="center">节点监听超时，自动休眠</td>
+</tr>
+</tbody></table>
+<h5 id="Multi-node-Ground-to-Air-Channel-Access"><a href="#Multi-node-Ground-to-Air-Channel-Access" class="headerlink" title="Multi-node Ground-to-Air Channel Access"></a>Multi-node Ground-to-Air Channel Access</h5><p><strong>当多颗地面节点在空域上重叠时，如何在一个高速掠过的 UAV 网关面前，既避免同 SF 碰撞，又把整体数据采集量推到理论上限。</strong></p>
+<ol>
+<li>为什么会碰撞</li>
+</ol>
+<hr>
+<ul>
+<li><p>多个节点为了最大化自己吞吐，都会优先选 <strong>最小可行 SF</strong>（数据率最高）。</p>
+</li>
+<li><p>当 UAV 飞经重叠区域时，这些节点在同一时段、同一 SF 上 <strong>并发上传 → 互相撞包 → 全丢</strong>。</p>
+<p><img src="14.png"></p>
+</li>
+</ul>
+<hr>
+<ol start="2">
+<li>论文给出的办法：SF Backoff</li>
+</ol>
+<hr>
+<p>核心思想一句话：</p>
+<blockquote>
+<p><strong>“谁链路更差，谁就让出高 SF，去用低 SF 的空闲信道。”</strong></p>
+</blockquote>
+<p>具体算法（Algorithm 1 文字版）</p>
+<ol>
+<li>对每对节点，检查它们在当前 SF 上的时间区间是否 <strong>重叠</strong>。</li>
+<li>如果重叠：<br>– 用 <strong>平均链路质量</strong>（由 RSS 曲线 + UAV 轨迹实时算）比较；<br>– 链路更差的那一个把自己的这段冲突时间 <strong>降级到下一个更慢的 SF</strong>；<br>– 如果已经是最慢 SF12，则把冲突区间 <strong>二等分</strong>，每人发一半。</li>
+<li>重新生成 <strong>新的无冲突时序表</strong> 并发给节点。</li>
+</ol>
+<p>结果</p>
+<ul>
+<li>高链路节点继续用高速 SF → 吞吐高。</li>
+<li>低链路节点退到低 SF → 仍然能发，且不再撞。</li>
+<li><strong>网络整体吞吐逼近理论上限</strong>（实验 9 节点场景提升 50 % 以上）。</li>
+</ul>
+<hr>
+<ol>
+<li>设计特点</li>
+</ol>
+<hr>
+<ul>
+<li><strong>中心化</strong>：所有计算在网关完成，节点只执行表，无额外功耗。</li>
+<li><strong>零额外信令</strong>：退让决策用已有 ACK&#x2F;RSSI 完成，不跑复杂握手。</li>
+<li><strong>可扩展</strong>：极端高密度场景可再叠加“代表节点”或“分簇”思想（论文末尾提到）。</li>
+</ul>
+<hr>
+<h3 id="EVALUATION"><a href="#EVALUATION" class="headerlink" title="EVALUATION"></a>EVALUATION</h3><ol>
+<li><p>硬件与场地<br> • <strong>节点</strong>：STM32-Nucleo-64 + Semtech SX1262，915 MHz，TP&#x3D;-10 dBm，3 dBi 胶棒天线。<br> • <strong>网关</strong>：同一块 SX1262 板 + Raspberry Pi 4B（跑完整 PreLoRa 网关程序），固定在 AMOVLAB Z410 四旋翼。<br> • <strong>场地</strong>：北京郊区 1 km² 开阔地，节点放东南角；无人机按图 17(a) 6 条平行航线飞，间距 200 m，速度 5 m&#x2F;s（另有 1 m&#x2F;s、10 m&#x2F;s 极端测试）。<br> • <strong>高度分层</strong>：A 档 50 m - 100 m、B 档 100 m - 150 m、C 档 150 m - 200 m，对应民用无人机法规上限。</p>
+</li>
+<li><p>基线与指标</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="center">基线</th>
+<th align="center">说明</th>
+<th align="center">目的</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">LoRaWAN-ALOHA</td>
+<td align="center">SF7 固定 255 B</td>
+<td align="center">最原始无自适应</td>
+</tr>
+<tr>
+<td align="center">ADR</td>
+<td align="center">官方自适应速率</td>
+<td align="center">低速场景基准</td>
+</tr>
+<tr>
+<td align="center">R-ARM</td>
+<td align="center">移动增强版 ADR</td>
+<td align="center">移动场景标杆</td>
+</tr>
+</tbody></table>
+<h4 id="四类实验"><a href="#四类实验" class="headerlink" title="四类实验"></a>四类实验</h4><table>
+<thead>
+<tr>
+<th>维度</th>
+<th><strong>PreLoRa</strong></th>
+<th><strong>ADR &#x2F; R-ARM</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>决策依据</strong></td>
+<td>基于 <strong>UAV 轨迹 + 预测链路模型（annulus model）</strong> 提前推算各 SF 的边界</td>
+<td>基于 <strong>历史 ACK 成功率&#x2F;丢包率</strong> 的统计结果，事后调整</td>
+</tr>
+<tr>
+<td><strong>触发延迟</strong></td>
+<td>0 ms —— UAV 在飞行前就生成并下发整个调度表（SF+时间），节点直接执行</td>
+<td>至少要收集一个统计窗口：ADR 典型是 ≥ 64 个 ACK（加上丢包约 96 包）才能触发，大约 13–15 s（@200 ms interval）</td>
+</tr>
+<tr>
+<td><strong>速度容忍</strong></td>
+<td>UAV 快速移动（论文实验 UAV 飞行速度最高 <strong>10 m&#x2F;s</strong>）仍能正常工作，因为边界是预测好的，不依赖 ACK</td>
+<td>ACK 统计滞后 → 当节点&#x2F;网关移动速度大于 5 m&#x2F;s 时，信道条件变化快，ADR&#x2F;R-ARM 的统计来不及更新，容易失效（文献对比中有明确指出）</td>
+</tr>
+<tr>
+<td><strong>更新粒度</strong></td>
+<td><strong>动态参数更新</strong>：当 UAV 位置变化时，利用测得的 RSS&#x2F;SNR 更新 annulus 模型参数。论文没设定固定 10 s，而是“实时&#x2F;随轨迹更新”。</td>
+<td>每当有新的 ACK 成功&#x2F;失败才更新 → 粒度取决于数据流量和 ACK 周期（较粗）</td>
+</tr>
+</tbody></table>
+<h5 id="单节点性能实验"><a href="#单节点性能实验" class="headerlink" title="单节点性能实验"></a><strong>单节点性能实验</strong></h5><ul>
+<li>高度 ABC 三档 + 6 条航线 + 高低速（1 m&#x2F;s vs 10 m&#x2F;s）。</li>
+<li>结果：PreLoRa 在所有高度、所有航线均领先；**C 档高度 PDR 81.5 % vs 基线 18–66 %**。</li>
+<li>原因：PreLoRa 提前算，ADR&#x2F;R-ARM 事后调。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">指标</th>
+<th align="center">定义</th>
+<th>单位</th>
+<th>关注层面</th>
+<th>举例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><strong>PDR</strong><br>(Packet Delivery Ratio)</td>
+<td align="center">成功收到包数 ÷ 总发包数</td>
+<td>%</td>
+<td><strong>可靠性</strong><br>“有多少包活着到达”</td>
+<td>PDR&#x3D;90% ⇒ 100 包里 90 个成功</td>
+</tr>
+<tr>
+<td align="center"><strong>吞吐量</strong><br>(Throughput)</td>
+<td align="center">单位时间内成功送达的 <strong>比特数</strong></td>
+<td>kbps</td>
+<td><strong>效率</strong><br>“每秒能搬多少有用数据”</td>
+<td>3 kbps ⇒ 每秒 3000 bit 有效数据</td>
+</tr>
+</tbody></table>
+<p><strong>单节点不同高度</strong></p>
+<p><img src="15.png" alt="单节点不同高度"></p>
+<p><strong>单节点不同路径</strong></p>
+<p><img src="16.png" alt="单节点不同路径"></p>
+<p><strong>单节点不同速度</strong></p>
+<p><img src="17.png" alt="单节点不同速度"></p>
+<h5 id="模块测试实验"><a href="#模块测试实验" class="headerlink" title="模块测试实验"></a><strong>模块测试实验</strong></h5><p>PreLoRa 主要包含三个功能模块：</p>
+<ol>
+<li><p><strong>Ground Node Localization（地面节点定位）</strong><br><strong>目的</strong>：验证用少量上行测量就能把节点定位到足够精度，从而支撑环形（annulus）模型<br><strong>方法</strong>：让 UAV 从远处飞向节点，持续累积上行 RSS 测量，用圆交点聚类法估计节点位置；用 GPS 位置作真值，统计“测量条数→定位误差”。见 Fig. 21。<br><strong>结果</strong>：测量越多误差越小；约 70 条测量时，定位误差已 &lt;15 m，论文据此把 70 条设为定位的最低样本数。</p>
+<p><img src="18.png"></p>
+</li>
+<li><p><strong>Parameters Update（模型参数在线更新）</strong><br><strong>目的</strong>：验证在线更新位置损耗系数 L与门限（决定各 SF 环边界）能否显著提高可靠性与吞吐。<br><strong>方法</strong>：沿用 V-C 的飞行设置（自由飞、分高度范围 A&#x2F;B&#x2F;C），对比“开启参数更新 vs 关闭”，统计各高度段的 PDR 与吞吐。见 Fig. 22。<br><strong>结果</strong>：开启更新后，PDR 提升分别为 11%（A）&#x2F;18.4%（B）&#x2F;27.5%（C）；吞吐提升为 14.6%&#x2F;25.1%&#x2F;28.6%。高度越高边界波动越大，收益越明显。</p>
+</li>
+</ol>
+<p><img src="19.png"></p>
+<ol start="3">
+<li><strong>Packet Length Control（分组长度控制）</strong><br><strong>目的</strong>：避免 UAV 穿越 SF 边界时，长包因为链路突变而失败；考察按计划窗口调节负载长度的价值。<br><strong>方法</strong>：在靠近节点、边界更密集的位置（Fig. 18），设 UAV 10 m&#x2F;s、BW&#x3D;500 kHz，对比“启用长度控制 vs 不启用”，在不同高度段看 PDR&#x2F;吞吐。见 Fig. 23。<br><strong>结果</strong>：两项指标均提升；其中吞吐提升从 <strong>4.5%（A）</strong>到 <strong>17.9%（C）</strong>不等，说明在链路更脆弱（高空、边界频繁）时该模块更关键。</li>
+</ol>
+<p><img src="20.png"></p>
+<h5 id="不同-ping-周期的影响"><a href="#不同-ping-周期的影响" class="headerlink" title="不同 ping 周期的影响"></a><strong>不同 ping 周期的影响</strong></h5><p><strong>目的</strong>：UAV 定期下发调度表（SF + 时间）。如果周期太长 → UAV 已经飞远，调度滞后 → PDR 会下降。</p>
+<p><strong>方法</strong>：</p>
+<ul>
+<li>设置 <strong>ping period &#x3D; 15 s、30 s、60 s</strong>等。</li>
+<li>节点按照对应调度执行，统计 <strong>PDR</strong>和<strong>Throughput</strong>。</li>
+</ul>
+<p><img src="21.png"></p>
+<h5 id="不同节点密度下的并发传输"><a href="#不同节点密度下的并发传输" class="headerlink" title="不同节点密度下的并发传输"></a><strong>不同节点密度下的并发传输</strong></h5><p><strong>目的</strong>：验证 SF-Backoff 算法在节点由“稀疏”到“密集”全光谱场景中的可扩展性，量化其对网络 PDR 与总吞吐的收益拐点。</p>
+<p><strong>方法</strong>：</p>
+<ul>
+<li>场景：100 m × 100 m 正方形区域，节点呈网格&#x2F;随机混合布设</li>
+<li>密度梯度：3、5、7、9 节点（对应每 km² 约 300–900 节点，边界重叠度 30 %→80 %）</li>
+<li>变量：关闭 vs 开启 SF-Backoff</li>
+<li>UAV：高度 B 档（100–150 m），5 m&#x2F;s 任意航迹，飞行 30 min</li>
+<li>指标：网络平均 PDR、聚合吞吐量、单节点能耗</li>
+</ul>
+<p><img src="22.png"></p>
+<h5 id="能耗对比实验"><a href="#能耗对比实验" class="headerlink" title="能耗对比实验"></a><strong>能耗对比实验</strong></h5><p><strong>目的</strong>：量化 PreLoRa 的“预测-避免重传”策略在真实硬件上能为电池节点节省多少能量，并与 ADR &#x2F; R-ARM &#x2F; LoRaWAN 固定配置做横评。</p>
+<p><strong>方法</strong>：</p>
+<ul>
+<li>节点：SX1262 + STM32L4（实测电流：TX 40 mA，RX 4.6 mA，Sleep 0.6 mA）</li>
+<li>数据块：10 KB &#x2F; 50 KB &#x2F; 250 KB（对应 40 &#x2F; 200 &#x2F; 1000 个 255 B 包）</li>
+<li>高度：A&#x2F;B&#x2F;C 三档各跑 1 轮</li>
+<li>记录项：每阶段电流 × 时长 → mAh</li>
+<li>对比方案：PreLoRa、ADR（默认 ACK 64+32）、R-ARM（5 次丢包触发）、LoRaWAN SF7 固定</li>
+</ul>
+<p><img src="23.png"></p>
+<h2 id="考核过程"><a href="#考核过程" class="headerlink" title="考核过程"></a>考核过程</h2><p>组里的老师给我发了五篇论文，安排我从中选一篇，用一周时间制作 PPT，之后进行 20 分钟的展示和大约 10 分钟的面试。这五篇论文都是郑老师课题组的研究成果，很明显，要是不沉下心来深入精读，肯定难以通过考核。</p>
+<p>在这五篇论文里，有一篇是关于 DNN 的，它涉及的无线通信知识最少。不过这篇论文的篇幅比其他论文稍短，而且郑老师组的主要研究方向就是无线通信领域，考虑到这些，我放弃了选择这篇 DNN 相关论文的想法。之后我把目光转向了另外四篇，最终选定了一篇有关优化 LoRa 网络的论文。主要原因是我在大三阶段修过无线通信相关课程，在课程学习中接触过 LoRa 无线通信的知识，选择这篇论文对我来说会更有基础。</p>
+<p>接下来就是制作PPT的过程，制作PPT我就不在这里再过多阐述了。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://hmk26421.github.io">Mk Hao</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://hmk26421.github.io/2025/08/21/int-rd-pa/">https://hmk26421.github.io/2025/08/21/int-rd-pa/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://hmk26421.github.io" target="_blank">Hmk's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="../../../../tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a></div><div class="post-share"><div class="social-share" data-image="../../../../img/profile.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="../../04/web/" title="搭建一个外贸电商网站"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">搭建一个外贸电商网站</div></div><div class="info-2"><div class="info-item-1">一个部署在Hostinger服务器上的电商网站7 月 30 日上午十点左右，何老师突然打来电话，提到他正在推进一个横向项目，其中需要搭建一个网站。他表示已经准备好了域名，且服务器需部署在美国，以便更好地服务美国用户。随后老师询问我们项目团队中负责 Web 开发的同学是否有人愿意承接这项工作，还特意说明会提供相应的劳务费，并且强调任务难度不高、操作比较简单。我在团队群里同步了这个消息后，等了一会儿没收到大家的回复，便主动接下了这个任务。 了解网站的搭建老师在传递消息的同时，第三方杨总提供了一些网站，说在这些网站上搭建、测试、购买域名。  ionos.com。hostinger.com。infinityfree.com。000webhost.com  由于我此前虽通过 Django 接触过 Web 开发，但对这些平台并不熟悉，因此先通过 B 站、YouTube 等渠道搜索了它们的核心功能，初步总结如下：这些平台均属于网站开发、部署、代码托管及域名购买管理的一站式服务工具，覆盖从建站到上线的全流程需求，适用场景包括但不限于电商网站开发。其中，它们普遍支持通过 WordPress...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="../img/profile.jpg" onerror="this.onerror=null;this.src='../img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Mk Hao</div><div class="author-info-description"></div><div class="site-data"><a href="../archives/"><div class="headline">文章</div><div class="length-num">4</div></a><a href="../tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/"><div class="headline">分类</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/hmk26421"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/hmk26421" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="../hmk26421@163.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="../2822926434" target="_blank" title="QQ"><i class="fa-brands fa-qq" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BA%E6%96%87%E7%B2%BE%E8%AF%BB"><span class="toc-number">1.</span> <span class="toc-text">论文精读</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B2%BE%E8%AF%BB%E8%BF%87%E7%A8%8B"><span class="toc-number">1.1.</span> <span class="toc-text">精读过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BACKGROUND-AND-MOTIVATION"><span class="toc-number">1.1.1.</span> <span class="toc-text">BACKGROUND AND MOTIVATION</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#BACKGROUND"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">BACKGROUND</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MOTIVATION"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">MOTIVATION</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DIRECTIVITY-AWARE-LINK-MODEL"><span class="toc-number">1.1.2.</span> <span class="toc-text">DIRECTIVITY-AWARE LINK MODEL</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Directivity-Model"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">Directivity Model</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8A%8A%E5%88%9A%E6%89%8D%E5%BE%97%E5%88%B0%E7%9A%84-D-theta-t-%E5%92%8C-D-theta-r-%E4%BB%A3%E5%85%A5%E5%BE%97%E5%88%B0%EF%BC%9A-P-mathrm-rx-P-mathrm-tx-frac-lambda-2-4-pi-d-2-eta-mathrm-r-eta-mathrm-t-left-frac-3-2-cos-2-theta-mathrm-p-right-2"><span class="toc-number">2.</span> <span class="toc-text">把刚才得到的$$D(\theta_t)$$和$$D(\theta_r)$$代入得到：$$P_{\mathrm{rx}}&#x3D;P_{\mathrm{tx}}\frac{\lambda^2}{(4\pi d)^2},\eta_{\mathrm{r}}\eta_{\mathrm{t}},\left(\frac{3}{2}\cos^2\theta_{\mathrm{p}}\right)^2</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Annulus-Model"><span class="toc-number">2.0.0.1.</span> <span class="toc-text">Annulus Model</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DESIGN"><span class="toc-number">2.0.1.</span> <span class="toc-text">DESIGN</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Model-Establishment"><span class="toc-number">2.0.1.1.</span> <span class="toc-text">Model Establishment</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Nodes-Locations-Estimation"><span class="toc-number">2.0.1.1.1.</span> <span class="toc-text">Nodes Locations Estimation</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Model-Parameter-Update"><span class="toc-number">2.0.1.1.2.</span> <span class="toc-text">Model Parameter Update</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Boundary-Estimation"><span class="toc-number">2.0.1.1.3.</span> <span class="toc-text">Boundary Estimation:</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Transmission-Scheduling"><span class="toc-number">2.0.1.2.</span> <span class="toc-text">Transmission Scheduling</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Air-Ground-to-Ground-Air-Communicator"><span class="toc-number">2.0.1.3.</span> <span class="toc-text">Air&#x2F;Ground-to-Ground&#x2F;Air Communicator</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Multi-node-Ground-to-Air-Channel-Access"><span class="toc-number">2.0.1.3.1.</span> <span class="toc-text">Multi-node Ground-to-Air Channel Access</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#EVALUATION"><span class="toc-number">2.0.2.</span> <span class="toc-text">EVALUATION</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9B%E7%B1%BB%E5%AE%9E%E9%AA%8C"><span class="toc-number">2.0.2.1.</span> <span class="toc-text">四类实验</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%8D%95%E8%8A%82%E7%82%B9%E6%80%A7%E8%83%BD%E5%AE%9E%E9%AA%8C"><span class="toc-number">2.0.2.1.1.</span> <span class="toc-text">单节点性能实验</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E6%B5%8B%E8%AF%95%E5%AE%9E%E9%AA%8C"><span class="toc-number">2.0.2.1.2.</span> <span class="toc-text">模块测试实验</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C-ping-%E5%91%A8%E6%9C%9F%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-number">2.0.2.1.3.</span> <span class="toc-text">不同 ping 周期的影响</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%8D%E5%90%8C%E8%8A%82%E7%82%B9%E5%AF%86%E5%BA%A6%E4%B8%8B%E7%9A%84%E5%B9%B6%E5%8F%91%E4%BC%A0%E8%BE%93"><span class="toc-number">2.0.2.1.4.</span> <span class="toc-text">不同节点密度下的并发传输</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%83%BD%E8%80%97%E5%AF%B9%E6%AF%94%E5%AE%9E%E9%AA%8C"><span class="toc-number">2.0.2.1.5.</span> <span class="toc-text">能耗对比实验</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%80%83%E6%A0%B8%E8%BF%87%E7%A8%8B"><span class="toc-number">2.1.</span> <span class="toc-text">考核过程</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="../2025/08/21/int-rd-pa/" title="精读论文">精读论文</a><time datetime="2025-08-21T03:42:00.000Z" title="发表于 2025-08-21 11:42:00">2025-08-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="../2025/08/04/web/" title="搭建一个外贸电商网站">搭建一个外贸电商网站</a><time datetime="2025-08-04T11:36:53.000Z" title="发表于 2025-08-04 19:36:53">2025-08-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="../2025/06/11/DM/" title="DM复习">DM复习</a><time datetime="2025-06-11T15:41:52.000Z" title="发表于 2025-06-11 23:41:52">2025-06-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="../2025/05/04/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" title="Ubuntu使用过程的一些问题以及解决">Ubuntu使用过程的一些问题以及解决</a><time datetime="2025-05-04T12:56:48.000Z" title="发表于 2025-05-04 20:56:48">2025-05-04</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2025 By Mk Hao</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.0-b1</a></span></div><div class="footer_custom_text">Hi, welcome to my <a target="_blank" rel="noopener" href="https://butterfly.js.org/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="../../../../js/utils.js"></script><script src="../../../../js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章..." type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="../js/search/local-search.js"></script></div></div></body></html>
