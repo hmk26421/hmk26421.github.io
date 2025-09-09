@@ -1,0 +1,770 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>brushup | Hmk's blog</title><meta name="author" content="Mk Hao,hmk26421@163.com"><meta name="copyright" content="Mk Hao"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="机试准备复习 内容为东copy西copy获得，均非原创，部分内容由AI支持获得 快速回顾必备知识 输入输出 getline() 当我们要求读取的字符串中间存在空格的时候，cin会读取不全整个字符串，这个时候，可以采用getline()函数来解决  注意1：使用getline()函数的时候，需要包含头文件&lt;string&gt; 注意2：getline()函数会读取一行，读取的字符串包括空格，遇">
+<meta property="og:type" content="article">
+<meta property="og:title" content="brushup">
+<meta property="og:url" content="https://hmk26421.github.io/2025/09/07/brushup/index.html">
+<meta property="og:site_name" content="Hmk&#39;s blog">
+<meta property="og:description" content="机试准备复习 内容为东copy西copy获得，均非原创，部分内容由AI支持获得 快速回顾必备知识 输入输出 getline() 当我们要求读取的字符串中间存在空格的时候，cin会读取不全整个字符串，这个时候，可以采用getline()函数来解决  注意1：使用getline()函数的时候，需要包含头文件&lt;string&gt; 注意2：getline()函数会读取一行，读取的字符串包括空格，遇">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hmk26421.github.io/img/profile.jpg">
+<meta property="article:published_time" content="2025-09-07T13:49:05.000Z">
+<meta property="article:modified_time" content="2025-09-09T03:02:54.827Z">
+<meta property="article:author" content="Mk Hao">
+<meta property="article:tag" content="学习记录">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hmk26421.github.io/img/profile.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "brushup",
+  "url": "https://hmk26421.github.io/2025/09/07/brushup/",
+  "image": "https://hmk26421.github.io/img/profile.jpg",
+  "datePublished": "2025-09-07T13:49:05.000Z",
+  "dateModified": "2025-09-09T03:02:54.827Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Mk Hao",
+      "url": "https://hmk26421.github.io/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="../../../../img/logo.jpg"><link rel="canonical" href="https://hmk26421.github.io/2025/09/07/brushup/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="../../../../css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"https://cdn.jsdelivr.net/npm/hexo-theme-butterfly@latest","preload":true,"top_n_per_article":3,"unescape":true,"languages":{"hits_empty":"未找到符合您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'medium_zoom',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'brushup',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" integrity="sha512-fHwaWebuwA7NSF5Qg/af4UeDx9XqUpYpOGgubo3yWu+b2IQR4UeQwbb42Ti7gVAjNtVoI/I9TEoYeu9omwcC6g==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(../../../../img/bg.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="../img/profile.jpg" onerror="this.onerror=null;this.src='../img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="../archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="../tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/"><div class="headline">分类</div><div class="length-num">3</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="../index.html"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="../categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="../tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="../archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="../person/"><i class="fa-fw fa fa-person"></i><span> 人物</span></a></li><li><a class="site-page child" href="../photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="../music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="../movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li><li><a class="site-page child" href="../book/"><i class="fa-fw fa fa-book"></i><span> 书籍</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="../links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="../comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="../about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="../../../../index.html"><img class="site-icon" src="../../../../img/profile.jpg" alt="Logo"><span class="site-name">Hmk's blog</span></a><a class="nav-page-title" href="../../../../index.html"><span class="site-name">brushup</span></a></span><div id="menus"><div id="search-button"><span class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></span></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="../index.html"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fa fa-graduation-cap"></i><span> 博文</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="../categories/"><i class="fa-fw fa fa-archive"></i><span> 分类</span></a></li><li><a class="site-page child" href="../tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="../archives/"><i class="fa-fw fa fa-folder-open"></i><span> 归档</span></a></li></ul></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> 生活</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="../person/"><i class="fa-fw fa fa-person"></i><span> 人物</span></a></li><li><a class="site-page child" href="../photos/"><i class="fa-fw fa fa-camera-retro"></i><span> 相册</span></a></li><li><a class="site-page child" href="../music/"><i class="fa-fw fa fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="../movies/"><i class="fa-fw fas fa-video"></i><span> 影视</span></a></li><li><a class="site-page child" href="../book/"><i class="fa-fw fa fa-book"></i><span> 书籍</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="../links/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="../comment/"><i class="fa-fw fa fa-paper-plane"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="../about/"><i class="fa-fw fas fa-heart"></i><span> 关于笔者</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">brushup</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-09-07T13:49:05.000Z" title="发表于 2025-09-07 21:49:05">2025-09-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-09T03:02:54.827Z" title="更新于 2025-09-09 11:02:54">2025-09-09</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="../../../../categories/%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0/">日常学习</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="../../../../categories/%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0/%E6%9C%BA%E8%AF%95/">机试</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">8.8k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>35分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1>机试准备复习</h1>
+<p>内容为东copy西copy获得，均非原创，部分内容由AI支持获得</p>
+<h2 id="快速回顾必备知识">快速回顾必备知识</h2>
+<h3 id="输入输出">输入输出</h3>
+<h4 id="getline">getline()</h4>
+<p>当我们要求读取的字符串中间存在空格的时候，cin会读取不全整个字符串，这个时候，可以采用getline()函数来解决</p>
+<blockquote>
+<p>注意1：使用getline()函数的时候，需要包含头文件<code>&lt;string&gt;</code></p>
+<p>注意2：getline()函数会读取一行，读取的字符串包括空格，遇到换行符结束</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">string s;</span><br><span class="line">getline(cin, s);</span><br><span class="line">// 输出读入的字符串</span><br><span class="line">cout &lt;&lt; s &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+<h4 id="getchar">getchar()</h4>
+<p>该函数会从缓存区中读出一个字符，经常被用于判断是否换行</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">char ch;</span><br><span class="line">ch = getchar();</span><br><span class="line">// 输出读入的字符</span><br><span class="line">cout &lt;&lt; ch &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">for(判断输出)</span><br><span class="line">    if(getchar() == &#x27;\n&#x27;) &#123;</span><br><span class="line">        break;</span><br></pre></td></tr></table></figure>
+<p>C++输出</p>
+<h4 id="for循环遍历">for循环遍历</h4>
+<p>for auto的使用，一种基于范围的循环，它可以遍历容器中的每个元素。</p>
+<ul>
+<li><strong>auto</strong>: 创建容器元素的副本，不会改变原容器中的元素。</li>
+<li><strong>auto&amp;</strong>: 创建容器元素的引用，可以修改原容器中的元素。</li>
+<li><strong>const auto&amp;</strong>: 创建容器元素的常量引用，可以访问但不可以修改原容器中的元素。</li>
+<li><strong>const auto</strong>: 创建容器元素的常量副本，不会改变也不能修改原容器中的元素。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;int&gt; vec = &#123;4, 3, 2, 1, 0&#125;;</span><br><span class="line">for (auto iter : vec) &#123;</span><br><span class="line">cout &lt;&lt; iter &lt;&lt; &quot; &quot;;</span><br><span class="line">&#125;</span><br><span class="line">// 输出: 4 3 2 1 0</span><br></pre></td></tr></table></figure>
+<p>字符串的操作</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">string s1 = &quot;nice to meet you~&quot;;    // 初始化一个空字符串</span><br><span class="line">// 如果想要改变 string 对象中的值，必须把循环变量定义为引用类型。引用只是个别名，相当于对原始数据进行操作</span><br><span class="line">for(auto &amp;c : s1)  </span><br><span class="line">    c = toupper(c); </span><br><span class="line">cout &lt;&lt; s1 &lt;&lt; endl; // 输出</span><br></pre></td></tr></table></figure>
+<p>C++控制输出精度</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">float f1 = 3.1415926;</span><br><span class="line">float num = 3.14159;</span><br><span class="line"></span><br><span class="line">// 保留4位小数</span><br><span class="line">printf(&quot;%3.4f\n&quot;, f1);//%3.4f表示输出的浮点数至少占3个字符宽度，并保留4位小数</span><br><span class="line">printf(&quot;%.2fn&quot;, num); // 输出: &quot;3.14&quot;</span><br><span class="line"></span><br><span class="line">// 保留3位小数</span><br><span class="line">printf(&quot;%6.3f\n&quot;, f1);</span><br><span class="line">// 保留2位小数</span><br><span class="line">printf(&quot;%6.2f\n&quot;, f1);</span><br><span class="line">printf(&quot;%5d&quot;, 42); //将输出一个占5个字符宽度的整数42。在这种情况下，数字会默认右对齐，左侧填充空格</span><br><span class="line"></span><br><span class="line">//对于需要以科学计数法输出的数字，可以使用%e占位符，并通过.后面的数字来指定小数点后的位数。</span><br><span class="line">printf(&quot;%.3e&quot;, 12345.6789); //将输出1.235e+04。</span><br></pre></td></tr></table></figure>
+<h3 id="字符串操作">字符串操作</h3>
+<h4 id="查询字符串信息、索引">查询字符串信息、索引</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">    string s1 = &quot;abc&quot;;    // 初始化一个字符串</span><br><span class="line">    cout &lt;&lt; s1.empty() &lt;&lt; endl;  // s 为空返回 true，否则返回 false</span><br><span class="line">    cout &lt;&lt; s1.size() &lt;&lt; endl;   // 返回 s 中字符个数，不包含空字符</span><br><span class="line">    cout &lt;&lt; s1.length() &lt;&lt; endl;   // 作用同上</span><br><span class="line">    cout &lt;&lt; s1[1] &lt;&lt; endl;  // 字符串本质是字符数组</span><br><span class="line">    cout &lt;&lt; s1[3] &lt;&lt; endl;  // 空字符还是存在的</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="拼接、比较等操作">拼接、比较等操作</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">s1+s2          // 返回 s1 和 s2 拼接后的结果。加号两边至少有一个 string 对象，不能都是字面值</span><br><span class="line">s1 == s2       // 如果 s1 和 s2 中的元素完全相等则它们相等，区分大小写</span><br><span class="line">s1 != s2</span><br><span class="line">&lt;, &lt;=, &gt;, &gt;=   // 利用字符的字典序进行比较，区分大小写</span><br></pre></td></tr></table></figure>
+<h4 id="修改-string-的操作">修改 string 的操作</h4>
+<p>在 pos 之前插入 args 指定的字符。pos是一个下标或者迭代器。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s.insert(pos, args)  </span><br><span class="line">// 在 s 的位置 0 之前插入 s2 的拷贝</span><br><span class="line">s.insert(0, s2)  </span><br></pre></td></tr></table></figure>
+<p>删除从 pos 开始的 len 个字符。如果 len 省略，则删除 pos 开始的后面所有字符。返回一个指向 s 的引用。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.erase(pos, len)</span><br></pre></td></tr></table></figure>
+<p>将 s 中的字符替换为 args 指定的字符。返回一个指向 s 的引用。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.assign(args)</span><br></pre></td></tr></table></figure>
+<p>将 args 追加到 s 。返回一个指向 s 的引用。args 不能是单引号字符，若是单个字符则必须用双引号表示。如，可以是 s.append(<strong>“<strong>A</strong>”</strong>) 但不能是 s.append(<strong>‘<strong>A</strong>’</strong>)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s.append(args)</span><br></pre></td></tr></table></figure>
+<p>将 s 中范围为 range 内的字符替换为 args 指定的字符。range 或者是一个下标或长度，或者是一对指向 s 的迭代器。返回一个指向 s 的引用。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s.replace(range, args) </span><br><span class="line">// 从位置 3 开始，删除 6 个字符，并插入 &quot;aaa&quot;.删除插入的字符数量不必相等</span><br><span class="line">s.replace(3, 6, &quot;aaa&quot;)  </span><br></pre></td></tr></table></figure>
+<h4 id="string-搜索操作">string 搜索操作</h4>
+<p>搜索操作返回指定字符出现的下标，如果未找到返回 npos</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s.find(args)  // 查找 s 中 args 第一次出现的位置</span><br><span class="line">s.rfind(args)  // 查找 s 中 args 最后一次出现的位置</span><br></pre></td></tr></table></figure>
+<h4 id="string、char-型与数值的转换">string、char 型与数值的转换</h4>
+<p>将数值 val 转换为 string 。val 可以是任何算术类型（int、浮点型等）。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string s = to_string(val)</span><br></pre></td></tr></table></figure>
+<p>char 型转数值。注意传入的参数是指针类型，即要对字符取地址</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">atoi(c)</span><br><span class="line">// 函数原型 int atoi(const char *_Str)</span><br><span class="line">atol(c)</span><br><span class="line">atoll(c)</span><br><span class="line">atof(c)</span><br></pre></td></tr></table></figure>
+<h4 id="字符串反转">字符串反转</h4>
+<p>使用 <algorithm> 头文件中的 reverse() 方法：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">string s2 = &quot;12345&quot;;    // 初始化一个字符串</span><br><span class="line">reverse(s2.begin(), s2.end()); // 反转 string 定义的字符串 s2 </span><br><span class="line">cout &lt;&lt; s2 &lt;&lt; endl; // 输出 54321</span><br></pre></td></tr></table></figure>
+<p>提取字串</p>
+<p>使用 string ss = s.substr(pos, n) 。从索引 pos 开始，提取连续的 n 个字符，包括 pos 位置的字符。</p>
+<h3 id="STL">STL</h3>
+<h4 id="vector">vector</h4>
+<h4 id="queue">queue</h4>
+<h4 id="set">set</h4>
+<p>set里面的元素<strong>不重复 且有序</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//头文件</span><br><span class="line">#include&lt;set&gt;</span><br><span class="line">//初始化定义</span><br><span class="line">set&lt;int&gt; s;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>复杂度</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>s.begin()</code></td>
+<td>O(1)</td>
+<td>返回 set 容器的第一个元素的地址（迭代器）</td>
+</tr>
+<tr>
+<td><code>s.end()</code></td>
+<td>O(1)</td>
+<td>返回 set 容器的最后一个元素的下一个地址（迭代器）</td>
+</tr>
+<tr>
+<td><code>s.rbegin()</code></td>
+<td>O(1)</td>
+<td>返回逆序迭代器，指向容器元素最后一个位置</td>
+</tr>
+<tr>
+<td><code>s.rend()</code></td>
+<td>O(1)</td>
+<td>返回逆序迭代器，指向容器第一个元素前面的位置</td>
+</tr>
+<tr>
+<td><code>s.clear()</code></td>
+<td>O(N)</td>
+<td>删除 set 容器中的所有元素，无返回值</td>
+</tr>
+<tr>
+<td><code>s.empty()</code></td>
+<td>O(1)</td>
+<td>判断 set 容器是否为空</td>
+</tr>
+<tr>
+<td><code>s.insert(element)</code></td>
+<td>O(log N)</td>
+<td>插入一个元素</td>
+</tr>
+<tr>
+<td><code>s.size()</code></td>
+<td>O(1)</td>
+<td>返回当前 set 容器中的元素个数</td>
+</tr>
+<tr>
+<td><code>erase(iterator)</code></td>
+<td>O(log N)</td>
+<td>删除定位器 iterator 指向的值</td>
+</tr>
+<tr>
+<td><code>erase(first, second)</code></td>
+<td>——</td>
+<td>删除定位器 first 和 second 之间的值</td>
+</tr>
+<tr>
+<td><code>erase(key_value)</code></td>
+<td>O(log N)</td>
+<td>删除键值 key_value 的值</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>查找</th>
+<th>复杂度</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>s.find(element)</code></td>
+<td>——</td>
+<td>查找 set 中的某一元素，有则返回该元素对应的迭代器，无则返回结束迭代器</td>
+</tr>
+<tr>
+<td><code>s.count(element)</code></td>
+<td>——</td>
+<td>查找 set 中元素出现的个数，由于 set 中元素唯一，此函数相当于查询 element 是否出现</td>
+</tr>
+<tr>
+<td><code>s.lower_bound(k)</code></td>
+<td>O(log N)</td>
+<td>返回大于等于 k 的第一个元素的迭代器</td>
+</tr>
+<tr>
+<td><code>s.upper_bound(k)</code></td>
+<td>O(log N)</td>
+<td>返回大于 k 的第一个元素的迭代器</td>
+</tr>
+</tbody>
+</table>
+<p><code>multiset</code> ：元素可以重复，且元素有序</p>
+<ul>
+<li>注意点一：方法函数基本和 <code>set</code> 一样，参考set即可。</li>
+</ul>
+<p>遍历：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for(auto i : s)</span><br><span class="line">	cout &lt;&lt; i &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+<h4 id="map">map</h4>
+<p>映射类似于函数的对应关系，每个<code>x</code>对应一个<code>y</code>，而<code>map</code>是每个键对应一个值。这和python的字典类型非常相似。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 头文件</span><br><span class="line">#include&lt;map&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="6-1-2-初始化">6.1.2 初始化</h4>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//初始化定义</span><br><span class="line">map&lt;string, string&gt; mp;</span><br><span class="line">map&lt;string, int&gt; mp;</span><br><span class="line">map&lt;int, node&gt; mp;//node是结构体类型</span><br></pre></td></tr></table></figure>
+<p>map特性：map会按照键的顺序从小到大自动排序，键的类型必须可以比较大小</p>
+<table>
+<thead>
+<tr>
+<th>代码</th>
+<th>含义</th>
+<th>复杂度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mp.find(key)</code></td>
+<td>返回键为 <code>key</code> 的映射的迭代器。若存在，返回对应迭代器；否则返回 <code>mp.end()</code>。</td>
+<td>O(log N)</td>
+</tr>
+<tr>
+<td><code>mp.erase(it)</code></td>
+<td>删除迭代器 <code>it</code> 对应的键和值</td>
+<td>O(log N)</td>
+</tr>
+<tr>
+<td><code>mp.erase(key)</code></td>
+<td>根据键 <code>key</code> 删除对应的键和值</td>
+<td>O(log N)</td>
+</tr>
+<tr>
+<td><code>mp.erase(first, last)</code></td>
+<td>删除迭代器区间 <code>[first, last)</code> 内的键和值</td>
+<td>O(last − first)</td>
+</tr>
+<tr>
+<td><code>mp.size()</code></td>
+<td>返回映射中键值对的数量</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td><code>mp.clear()</code></td>
+<td>清空 <code>map</code> 中的所有元素</td>
+<td>O(N)</td>
+</tr>
+<tr>
+<td><code>mp.insert(&#123;key, value&#125;)</code></td>
+<td>插入键值对</td>
+<td>O(log N)</td>
+</tr>
+<tr>
+<td><code>mp.empty()</code></td>
+<td>若 <code>map</code> 为空返回 <code>true</code>，否则返回 <code>false</code></td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td><code>mp.begin()</code></td>
+<td>返回指向第一个元素的迭代器</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td><code>mp.end()</code></td>
+<td>返回指向最后一个元素之后位置的迭代器</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td><code>mp.rbegin()</code></td>
+<td>返回指向最后一个元素的逆序迭代器</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td><code>mp.rend()</code></td>
+<td>返回指向第一个元素之前位置的逆序迭代器</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td><code>mp.count(key)</code></td>
+<td>返回键 <code>key</code> 出现的次数（0 或 1）</td>
+<td>O(log N)</td>
+</tr>
+<tr>
+<td><code>mp.lower_bound(key)</code></td>
+<td>返回指向键 ≥ <code>key</code> 的第一个元素的迭代器</td>
+<td>O(log N)</td>
+</tr>
+<tr>
+<td><code>mp.upper_bound(key)</code></td>
+<td>返回指向键 &gt; <code>key</code> 的第一个元素的迭代器</td>
+<td>O(log N)</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">map&lt;int,int&gt; mp;</span><br><span class="line">mp[1] = 2;</span><br><span class="line">mp[2] = 3;</span><br><span class="line">mp[3] = 4;</span><br><span class="line">auto it = mp.begin();</span><br><span class="line">while(it != mp.end()) &#123;</span><br><span class="line">	cout &lt;&lt; it-&gt;first &lt;&lt; &quot; &quot; &lt;&lt; it-&gt;second &lt;&lt; &quot;\n&quot;;</span><br><span class="line">	it ++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="已学知识点">已学知识点</h2>
+<p>这里不能说掌握，只能说学过，也刷过对应的题目</p>
+<ol>
+<li>二分</li>
+<li>BFS</li>
+<li>DFS</li>
+<li>DP</li>
+<li>高精度</li>
+<li>判断素数</li>
+<li>贪心</li>
+<li>快速幂</li>
+<li>排序算法（归并、快速）</li>
+</ol>
+<p>部分题解</p>
+<p>BFS适合找最短路径，DFS适合搜索全部的解</p>
+<p>DP适用范围：大问题可以由小问题推出，大问题与小问题求解思路相同（最优子结构），且一旦f(n)确定，后续我们直接调用它的值就可以，而不用关心它是怎样过来的（无后效性）</p>
+<h3 id="海量数据">海量数据</h3>
+<p>cin、cout 数据量级达到 1e5、1e6，会产生 IO 性能报错 TLE。简述，函数作用为设置标准 C++ 流是否与标准 C 流在每次输入/输出操作后同步</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ios::sync_with_stdio(false);</span><br><span class="line">cin.tie(nullptr);</span><br></pre></td></tr></table></figure>
+<h3 id="二分">二分</h3>
+<p><strong>分治思想就是把复杂问题、拆分成若干个相同的小问题，然后将问题逐步解决掉，合并到一起的过程。</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">int binary_search(int *a, int R, int x)</span><br><span class="line">//二分查找，返回a数组中第一个&gt;=x的位置 </span><br><span class="line">&#123;</span><br><span class="line">    int L = 1, mid;</span><br><span class="line">    while(L &lt;= R)</span><br><span class="line">    &#123;</span><br><span class="line">        mid = (L+R) &gt;&gt; 1;</span><br><span class="line">        if(a[mid] &lt;= x)</span><br><span class="line">            L = mid + 1;</span><br><span class="line">        else </span><br><span class="line">            R = mid - 1;</span><br><span class="line">    &#125;</span><br><span class="line">    return L;</span><br></pre></td></tr></table></figure>
+<h3 id="BFS">BFS</h3>
+<p>广度优先搜索（也称宽度优先搜索，缩写BFS，以下采用广度来描述）是连通图的一种遍历策略。因为它的思想是从一个顶点开始，辐射状地优先遍历其周围较广的区域，因此得名。<br>
+一般可以用它做什么呢？一个最直观经典的例子就是走迷宫，我们从起点开始，找出到终点的最短路程，很多最短路径算法就是基于广度优先的思想成立的。</p>
+<p>主要解决的问题：从一个起点开始要到一个终点，我们要找<strong>寻一条最短的路径</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">queue&lt;pair&lt;int,int&gt; &gt; q;</span><br><span class="line">void bfs()&#123;</span><br><span class="line">	while(!q.empty())</span><br><span class="line">	&#123;</span><br><span class="line">		node temp=q.front();</span><br><span class="line">		q.pop();</span><br><span class="line">		if(完成目标)</span><br><span class="line">		&#123;</span><br><span class="line">			记录;</span><br><span class="line">			return;</span><br><span class="line">		&#125;</span><br><span class="line">		for(int i=0;i&lt;m;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			int xx=temp.x+dx[i];</span><br><span class="line">			int yy=temp.y+dy[i];//方向数组</span><br><span class="line">			if(数组越界||已被标记)</span><br><span class="line">			&#123;</span><br><span class="line">				continue;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		mark[xx][yy]=1;</span><br><span class="line">        q.push(make_pair(xx,yy));//q.push(&#123;xx,yy&#125;);//在c11中使用</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>多个节点使用结构体构造</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">queue&lt;Node&gt; q;</span><br><span class="line"></span><br><span class="line">/* 1. 传统 push + 临时对象 */</span><br><span class="line">Node u(1, 2, 3, 4);</span><br><span class="line">q.push(u);</span><br><span class="line"></span><br><span class="line">/* 2. 直接 push 构造 */</span><br><span class="line">q.push(Node(1, 2, 3, 4));</span><br><span class="line"></span><br><span class="line">/* 3. C++11 起 emplace 最简洁：原地构造，省拷贝 */</span><br><span class="line">q.emplace(1, 2, 3, 4); </span><br></pre></td></tr></table></figure>
+<h3 id="DFS-深搜">DFS 深搜</h3>
+<p>主要用于穷举所有可能解（全排列），或者连通性问题（二者之间是否有路）。</p>
+<p>DFS（Depth-First Search，深度优先搜索）是一种用于遍历图或树的算法。它的核心思想是从一个起点开始，沿着一个方向尽可能深地搜索，直到无法继续为止，然后回溯到上一个节点，继续沿着其他方向搜索。<strong>一条路走到黑，撞墙再回头</strong>。DFS可以使用递归或栈（非递归）来实现。</p>
+<p>三点注意：</p>
+<ol>
+<li>优先往深处探索，直到无路可走。</li>
+<li>递归返回时恢复状态（比如取消标记）。</li>
+<li>记录走过的节点，避免重复访问和死循环。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">void dfs(int x, int y) &#123;</span><br><span class="line">    visited[x][y] = true;  // 标记当前节点</span><br><span class="line">    dfs(x+1, y);</span><br><span class="line">    visited[x][y] = false; // 回溯时取消标记</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>经典迷宫问题的解决</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">void dfs(int x, int y, int step) &#123;</span><br><span class="line">    // 1. 终止条件：找到终点</span><br><span class="line">    if (maze[x][y] == &#x27;T&#x27;) &#123;</span><br><span class="line">        if (min_steps == -1 || step &lt; min_steps) &#123;</span><br><span class="line">            min_steps = step; // 更新最短步数</span><br><span class="line">        &#125;</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    // 2. 标记当前位置已访问</span><br><span class="line">    visited[x][y] = true;</span><br><span class="line">    // 3. 定义四个方向：上、下、左、右</span><br><span class="line">    int dx[] = &#123;-1, 1, 0, 0&#125;;</span><br><span class="line">    int dy[] = &#123;0, 0, -1, 1&#125;;</span><br><span class="line">    // 4. 尝试所有方向</span><br><span class="line">    for (int i = 0; i &lt; 4; i++) &#123;</span><br><span class="line">        int nx = x + dx[i];</span><br><span class="line">        int ny = y + dy[i];</span><br><span class="line">        // 5. 检查新位置是否合法</span><br><span class="line">        if (nx &lt; 1 || nx &gt; n || ny &lt; 1 || ny &gt; m) continue; // 越界</span><br><span class="line">        if (maze[nx][ny] == &#x27;*&#x27; || visited[nx][ny]) continue; // 撞墙或已走过</span><br><span class="line">        // 6. 递归探索下一步</span><br><span class="line">        dfs(nx, ny, step + 1);</span><br><span class="line">    &#125;</span><br><span class="line">    // 7. 回溯：恢复状态，允许其他路径探索</span><br><span class="line">    visited[x][y] = false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="DP动态规划-dynamic-programming-DP">DP动态规划(dynamic programming,DP)</h3>
+<p>动态规划是一种将一个复杂问题分解为多个简单的子问题求解的方法。将子问题的答案存储在记忆数据结构中，当子问题再次需要解决时，只需查表查看结果，而不需要再次重复计算，因此节约了计算时间。动态规划常常适用于有重叠子问题和最优子结构性质的问题。</p>
+<p>最核心的思想，就在于<strong>拆分子问题，记住过往，减少重复计算</strong>。​</p>
+<ul>
+<li>暴力dfs–&gt;记忆化搜索–&gt;地推（dp）</li>
+<li>记忆化搜索 = 暴力dfs + 记录答案</li>
+<li>递推公式 = dfs向下递归的公式</li>
+<li>递推数组的初始值 = 递归边界</li>
+</ul>
+<p>动态规划解题步骤：</p>
+<ol>
+<li>重述问题</li>
+<li>找到最后一步</li>
+<li>去掉最后一步，是否能划分子问题</li>
+<li>考虑边界</li>
+</ol>
+<p>notice:</p>
+<ol>
+<li>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>p</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>j</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">dp[i][j]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">p</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mclose">]</span></span></span></span>数组的下标及其含义
+</li>
+<li>递推公式</li>
+<li>
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>p</mi></mrow><annotation encoding="application/x-tex">dp</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">p</span></span></span></span>数组的初始化（初始化0，1，1-3初始化为1）
+</li>
+<li>遍历顺序的安排（0-1背包中的两层for循环）</li>
+<li>打印dp数组观察结果</li>
+</ol>
+<p>DP的核心就是确定递推公式（<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>p</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>j</mi><mo stretchy="false">]</mo><mo>=</mo><mi>d</mi><mi>p</mi><mo stretchy="false">[</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>j</mi><mo stretchy="false">]</mo><mo>+</mo><mi>d</mi><mi>p</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>j</mi><mo>−</mo><mn>1</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">dp[i][j] = dp[i-1][j] + dp[i][j-1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">p</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">p</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">p</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span></span></span></span>）和确定边界，其余就是应用的不同场景，这里我只举少部分例子，剩下的包含概率DP、区间DP···，详细请看<a target="_blank" rel="noopener" href="https://blog.csdn.net/pl0321/article/details/115507286">这里</a></p>
+<p>另外参考<a target="_blank" rel="noopener" href="https://kamacoder.com/sharefile_handle.php?code=001U2l000hpKVU1xUT2008AzJs3U2l0j&amp;state=6790ed886ced7">这里</a></p>
+<ol>
+<li>斐波那契问题</li>
+<li>线性DP，参考下面的最长上升子序列</li>
+<li>背包DP</li>
+<li>打家劫舍</li>
+<li>股票问题</li>
+</ol>
+<p>DP本质上是一个以空间换时间的算法，本质是穷举法，列举出所有可能的子问题，以历史信息进行求解(如果不不存储历史信息直接进行多次计算，某些子问题会计算多次，增加时间花费)。有些问题可以通过剪支来减少解空间大小，增快求解速度。DP可以保证求解的结果是最优的。</p>
+<h3 id="贪心-greedy-algorithm，GA">贪心(greedy algorithm，GA)</h3>
+<p>局部最优–&gt;全局最优<br>
+DP和GA都利用了历史信息进行求解。但是二者利用历史信息的方式有所区别。</p>
+<p>GA：贪心算法的每一步最优解都包含上一步的最优解，通过上一步的结果和当前的信息进行求解。也就是其利用的历史信息只有上一步的最优解。上一步之前的解则不做保留。</p>
+<p>从树的角度理解，GA从根节点出发，向下遍历最优子树，这样的话，只按照一条路径向下寻找，所以无法构成完整的遍历树。时间复杂度低。</p>
+<p>DP：由于重叠子问题和最优子结构的形式，DP可以利用所有的局部最优解信息进行求解，不一定包含上一步的最优解。所以DP要纪录所有的局部最优解，也就是纪录所有的子问题最优解。</p>
+<p>GA较为简单，只利用上一步的最优解信息进行计算。时间复杂度低，但是因为其求解的问题不一定符合贪婪的性质，所以求解的结果不一定是最优的。</p>
+<h3 id="高精度">高精度</h3>
+<h4 id="数据的接收和存贮：当输入的数很长时：">数据的接收和存贮：当输入的数很长时：</h4>
+<ol>
+<li>可采用字符串方式输入，这样可输入数字很长的数，利用字符串函数和操作运算，将每一位数取出，存入数组中</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">void init(int a[])                                //传入一个数组</span><br><span class="line">    &#123;</span><br><span class="line">          string s; </span><br><span class="line">          cin&gt;&gt;s;                                      //读入字符串s </span><br><span class="line">          a[0]=s.length();             //用a[0]计算字符串s的位数 </span><br><span class="line">          for(i=1;i&lt;=a[0];i++)</span><br><span class="line">              a[i]=s[a[0]-i]-&#x27;0&#x27;;    //将数串s转换为数组a，并倒序存储 </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>直接用循环加数组方法输入数据</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">for(int i=0;i&lt;s1.size();i++)</span><br><span class="line">&#123;</span><br><span class="line">	a[i]=s1[s1.size()-1-i]-&#x27;0&#x27;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="高精度加法">高精度加法</h4>
+<p>用字符串输入两个数，再导入数组，然后每位相加，如果某位数字&gt;10，则此位模10，下一位加一，最后用while循环去除前导零再输出即可。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">c[i]=a[i]+b[i];</span><br><span class="line">if (c[i]&gt;=10) &#123;</span><br><span class="line">    c[i]%=10; ++c[i+1]; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="高精度减法">高精度减法</h4>
+<p>用字符串输入两个数，再导入数组，判断是否后数比前数，如果是则输出负号再交换数组。然后按位相减不够借1，最后用while循环去除前导零再输出即可。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if (a[i]&lt;b[i]) &#123; </span><br><span class="line">    --a[i+1]; </span><br><span class="line">    a[i]+=10; </span><br><span class="line">&#125;</span><br><span class="line">c[i]=a[i]-b[i];</span><br></pre></td></tr></table></figure>
+<h4 id="高精度乘法">高精度乘法</h4>
+<p>导入方法与前面一样，导入后按乘法竖式思路相乘，再按常规思路进位。最后去除前导零就行了。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">for(int i=0;i&lt;a.size();i++)</span><br><span class="line">&#123;</span><br><span class="line">	for(int j=0;j&lt;b.size();j++)</span><br><span class="line">	&#123;</span><br><span class="line">	c[i+j-1]= a[i]*b[j] + x + c[i+j-1];</span><br><span class="line">	x = c[i+j-1]/10;</span><br><span class="line">	c[i+j-1] %= 10;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="判断素数">判断素数</h3>
+<p>即将n除以[2,n-1]的所有整数，若有其中一个数运算后的余数为0，也就是说这个数是n的因数，故n不为素数。</p>
+<p>由于n的因数总是成对出现的，且分别分布在<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><mn>1</mn><mo separator="true">,</mo><msqrt><mi>n</mi></msqrt><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[1, \sqrt n]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0503em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8003em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="padding-left:0.833em;">n</span></span><span style="top:-2.7603em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2397em;"><span></span></span></span></span></span><span class="mclose">]</span></span></span></span>和<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><msqrt><mi>n</mi></msqrt><mo separator="true">,</mo><mi>n</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[\sqrt n,n]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.0503em;vertical-align:-0.25em;"></span><span class="mopen">[</span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8003em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="padding-left:0.833em;">n</span></span><span style="top:-2.7603em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2397em;"><span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">n</span><span class="mclose">]</span></span></span></span>范围内，若因数为<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msqrt><mi>n</mi></msqrt></mrow><annotation encoding="application/x-tex">\sqrt n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.04em;vertical-align:-0.2397em;"></span><span class="mord sqrt"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8003em;"><span class="svg-align" style="top:-3em;"><span class="pstrut" style="height:3em;"></span><span class="mord mathnormal" style="padding-left:0.833em;">n</span></span><span style="top:-2.7603em;"><span class="pstrut" style="height:3em;"></span><span class="hide-tail" style="min-width:0.853em;height:1.08em;"><svg xmlns="http://www.w3.org/2000/svg" width="400em" height="1.08em" viewBox="0 0 400000 1080" preserveAspectRatio="xMinYMin slice"><path d="M95,702
+c-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14
+c0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54
+c44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10
+s173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429
+c69,-144,104.5,-217.7,106.5,-221
+l0 -0
+c5.3,-9.3,12,-14,20,-14
+H400000v40H845.2724
+s-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7
+c-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z
+M834 80h400000v40h-400000z"/></svg></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2397em;"><span></span></span></span></span></span></span></span></span>，我们当作两个重复的因数），那么我们只需判断一个范围即可。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">bool isPrime2(int n)&#123;</span><br><span class="line"> bool yes=true;</span><br><span class="line"> for(int i=2;i&lt;=sqrt(n);i++)&#123;</span><br><span class="line">  if(n%i==0)&#123;</span><br><span class="line">   yes=false;</span><br><span class="line">   break;</span><br><span class="line">  &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> return yes;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>继续改进，当n≥6时，由于n可以表示为6x+1、6x+2、6x+3、6x+4、6x+5、6x (x≥1)中的一种，那么，若n的表达式为6x+2、6x+4、6x+3或6x，很显然n不是素数；故，当n的表达式为6x+1或6x+5时，可能为素数，然后再应用上述方法，我们就得到如下算法。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">bool isPrime(int n)</span><br><span class="line">&#123;</span><br><span class="line">	bool yes=false;</span><br><span class="line">	if(n==2||n==3||n==5)</span><br><span class="line">	&#123;</span><br><span class="line">		yes=true;</span><br><span class="line">	&#125;</span><br><span class="line">	else if(n%6==1||n%6==5)</span><br><span class="line">	&#123;</span><br><span class="line">		yes=true;</span><br><span class="line">		for(int i=2;i&lt;=sqrt(n);i++)</span><br><span class="line">		&#123;</span><br><span class="line">			if(n%i==0)</span><br><span class="line">			&#123;</span><br><span class="line">			yes=false;</span><br><span class="line">			break;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	return yes;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="快速幂">快速幂</h3>
+<p>快速幂算法能帮我们算出指数非常大的幂，传统的求幂算法之所以时间复杂度非常高（为O(指数n)），就是因为当指数n非常大的时候，需要执行的循环操作次数也非常大。所以我们快速幂算法的核心思想就是每一步都把指数分成两半，而相应的底数做平方运算。</p>
+<blockquote>
+<ol>
+<li>(a + b) % p = (a % p + b % p) % p （1）</li>
+<li>(a - b) % p = (a % p - b % p ) % p （2）</li>
+<li><strong>(a * b) % p = (a % p * b % p) % p （3）</strong></li>
+</ol>
+</blockquote>
+<p>3^10=(3<em>3)</em>(3<em>3)</em>(3<em>3)</em>(3<em>3)</em>(3*3)</p>
+<p>3^10=(3*3)^5</p>
+<p>3^10=9^5</p>
+<p>9^5=（81^2）*(9^1)</p>
+<p>9^5=（6561^1）*(9^1)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">long long fastPower(long long base, long long power) &#123;</span><br><span class="line">    long long result = 1;</span><br><span class="line">    while (power &gt; 0) &#123;</span><br><span class="line">        if (power % 2 == 0) &#123;</span><br><span class="line">            //如果指数为偶数</span><br><span class="line">            power = power / 2;//把指数缩小为一半</span><br><span class="line">            base = base * base % 1000;//底数变大成原来的平方</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            //如果指数为奇数</span><br><span class="line">            power = power - 1;//把指数减去1，使其变成一个偶数</span><br><span class="line">            result = result * base % 1000;//此时记得要把指数为奇数时分离出来的底数的一次方收集好</span><br><span class="line">            power = power / 2;//此时指数为偶数，可以继续执行操作</span><br><span class="line">            base = base * base % 1000;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">long long fastPower(long long base, long long power) &#123;</span><br><span class="line">    long long result = 1;</span><br><span class="line">    while (power &gt; 0) &#123;</span><br><span class="line">        if (power &amp; 1) &#123;//此处等价于if(power%2==1)</span><br><span class="line">            result = result * base % 1000;</span><br><span class="line">        &#125;</span><br><span class="line">        power &gt;&gt;= 1;//此处等价于power=power/2</span><br><span class="line">        base = (base * base) % 1000;</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="排序算法">排序算法</h3>
+<h4 id="归并排序（Merge-Sort）">归并排序（Merge Sort）</h4>
+<p>分治策略: 归并排序递归地将数组分成两个子数组，每个子数组再继续分成更小的数组，直到每个子数组只包含一个元素或为空。</p>
+<p>合并过程: 将两个排序好的子数组合并成一个最终的排序数组。合并时，从两个数组的起始位置开始比较，选择两者中较小的元素放入结果数组中，然后移动指针，重复此过程，直到所有元素都被合并。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">// 把 arr[left..mid] 和 arr[mid+1..right] 这两段合并成一段有序区间</span><br><span class="line">void merge(vector&lt;int&gt;&amp; arr, int left, int mid, int right) &#123;</span><br><span class="line">    int n1 = mid - left + 1;      // 左半段长度</span><br><span class="line">    int n2 = right - mid;         // 右半段长度</span><br><span class="line"></span><br><span class="line">    // 开两个临时数组，把左右两段拷出来</span><br><span class="line">    vector&lt;int&gt; L(n1), R(n2);</span><br><span class="line">    for (int i = 0; i &lt; n1; ++i) L[i] = arr[left + i];</span><br><span class="line">    for (int j = 0; j &lt; n2; ++j) R[j] = arr[mid + 1 + j];</span><br><span class="line"></span><br><span class="line">    // 三个指针：i 扫 L，j 扫 R，k 扫原数组</span><br><span class="line">    int i = 0, j = 0, k = left;</span><br><span class="line"></span><br><span class="line">    // 按大小顺序把元素放回原数组</span><br><span class="line">    while (i &lt; n1 &amp;&amp; j &lt; n2) &#123;</span><br><span class="line">        if (L[i] &lt;= R[j])</span><br><span class="line">            arr[k++] = L[i++];</span><br><span class="line">        else</span><br><span class="line">            arr[k++] = R[j++];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    // 把剩余的直接搬过去</span><br><span class="line">    while (i &lt; n1) arr[k++] = L[i++];</span><br><span class="line">    while (j &lt; n2) arr[k++] = R[j++];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 递归版归并排序：把 arr[left..right] 排好序</span><br><span class="line">void mergeSort(vector&lt;int&gt;&amp; arr, int left, int right) &#123;</span><br><span class="line">    if (left &lt; right) &#123;</span><br><span class="line">        int mid = left + (right - left) / 2;  // 防溢出写法</span><br><span class="line">        mergeSort(arr, left, mid);            // 排左半</span><br><span class="line">        mergeSort(arr, mid + 1, right);       // 排右半</span><br><span class="line">        merge(arr, left, mid, right);         // 合并</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>时间复杂度<br>
+归并排序的时间复杂度为<strong>O(nlogn)</strong>。无论最好、最坏还是平均情况，其性能都保持一致，因为它总是分解数组并合并。</p>
+<p>空间复杂度<br>
+归并排序的空间复杂度为<strong>O(n)</strong>，因为合并过程需要与原始数组相同大小的额外空间。</p>
+<p>稳定性分析<br>
+归并排序是一种稳定的排序算法。如果两个元素相等，它们在合并时的相对顺序不会改变</p>
+<h4 id="快速排序（Quick-Sort）">快速排序（Quick Sort）</h4>
+<p>分区策略: 快速排序通过选择一个基准元素，然后重新排列数组，使得所有小于基准的元素都移到基准的左边，所有大于基准的元素都移到基准的右边。这个操作称为分区。</p>
+<p>基准元素的选择: 基准的选择可以多样化，常见的方法包括选择第一个元素、最后一个元素、中间元素，或者随机选择一个元素作为基准。</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1vP411g7J3/?spm_id_from=333.337.search-card.all.click&amp;vd_source=1c80e72337ca7060a34db5d6363e7503">下述代码对应的解析</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">// 分区函数：返回基准最终下标</span><br><span class="line">int partition(int a[], int low, int high) &#123;</span><br><span class="line">    // 随机选择基准，交换到最左边</span><br><span class="line">    int pivot = a[low];</span><br><span class="line">    while (low &lt; high) &#123;</span><br><span class="line">        // 从右往左找第一个 &lt;= pivot 的</span><br><span class="line">        while (low &lt; high &amp;&amp; a[high] &gt;= pivot) high--;</span><br><span class="line">        // 从左往右找第一个 &gt; pivot 的</span><br><span class="line">        while (low &lt; high &amp;&amp; a[low] &lt;= pivot) low++;</span><br><span class="line">		a[high]=a[low];</span><br><span class="line">    &#125;</span><br><span class="line">	a[low]=pivot;</span><br><span class="line">    return low;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 快速排序</span><br><span class="line">void quickSort(int a[], int low, int high) &#123;</span><br><span class="line">    if (low &lt; high) &#123;</span><br><span class="line">        int p = partition(a, low, high);</span><br><span class="line">        quickSort(a, low, p - 1);</span><br><span class="line">        quickSort(a, p + 1, high);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>时间复杂度</p>
+<ul>
+<li>
+<p>最佳和平均情况: 在最佳和平均情况下，快速排序的时间复杂度为O(n log n)。</p>
+</li>
+<li>
+<p>最坏情况: 在最坏情况下（例如，当数组已经排序或所有元素相等时），快速排序的时间复杂度会降为O(n^2)。</p>
+</li>
+</ul>
+<p>空间复杂度<br>
+快速排序的空间复杂度为O(log n)，因为它在原地排序，但递归调用栈占用了空间。</p>
+<p>稳定性分析<br>
+快速排序通常是不稳定的，因为相等元素的相对位置可能在分区过程中改变。</p>
+<h2 id="经典题目">经典题目</h2>
+<h3 id="爬楼梯">爬楼梯</h3>
+<p>经典且入门DP</p>
+<p>递推公式：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>p</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo>=</mo><mi>d</mi><mi>p</mi><mo stretchy="false">[</mo><mi>i</mi><mo>−</mo><mn>2</mn><mo stretchy="false">]</mo><mo>+</mo><mi>d</mi><mi>p</mi><mo stretchy="false">[</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">dp[i]=dp[i-2]+dp[i-1]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">p</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">p</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">2</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">p</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span></span></span></span></p>
+<p>初始化，dp[0]，不赋值，dp[1]=1，dp[2]=2。</p>
+<p>从前到后遍历</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">int climbStairs(int n)</span><br><span class="line">&#123;</span><br><span class="line">	if(n==1)&#123;</span><br><span class="line">		return 1;</span><br><span class="line">	&#125;</span><br><span class="line">	int dp[n+1];</span><br><span class="line">	for(int i=0;i&lt;n+1;i++)&#123;</span><br><span class="line">		dp[i]=0;</span><br><span class="line">	&#125;</span><br><span class="line">	dp[1]=1;</span><br><span class="line">	dp[2]=2;</span><br><span class="line">	for(int i=3;i&lt;=n;i++)&#123;</span><br><span class="line">		dp[i]=dp[i-1]+dp[i-2];</span><br><span class="line">	&#125;</span><br><span class="line">	return dp[n];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="最长上升子序列（LIS）">最长上升子序列（LIS）</h3>
+<p>最长上升子序列（Longest  Increasing Subsequence），简称LIS，也有些情况求的是最长非降序子序列，二者区别就是序列中是否可以有相等的数。假设我们有一个序列 b i，当b1 &lt; b2 &lt; … &lt; bS的时候，我们称这个序列是上升的。对于给定的一个序列(a1, a2, …, aN)，我们也可以从中得到一些上升的子序列(ai1, ai2, …, aiK)，这里1 &lt;= i1 &lt; i2 &lt; … &lt; iK &lt;= N，但必须按照从前到后的顺序。比如，对于序列(1, 7, 3, 5, 9, 4, 8)，我们就会得到一些上升的子序列，如(1, 7, 9), (3, 4, 8), (1, 3, 5, 8)等等，而这些子序列中最长的（如子序列(1, 3, 5, 8) ），它的长度为4，因此该序列的最长上升子序列长度为4。</p>
+<p>求LIS的三种方法，分别是O(n^2)的DP，O(nlogn)的二分+贪心法，以及O(nlogn)的树状数组优化的DP</p>
+<h4 id="普通DP">普通DP</h4>
+<p>状态设计：F [ i ] 代表以 A [ i ] 结尾的 LIS 的长度</p>
+<p>状态转移：F [ i ] = max { F [ j ] + 1 ，F [ i ] } (1 &lt;= j &lt;  i，A[ j ] &lt; A[ i ])</p>
+<p>边界处理：F [ i ] = 1 (1 &lt;= i &lt;= n)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">for(int i=1; i&lt;=n; i++)</span><br><span class="line">    for(int j=1; j&lt;i; j++)</span><br><span class="line">        if(a[j] &lt; a[i])</span><br><span class="line">            f[i] = max(f[i], f[j]+1);</span><br><span class="line">for(int i=1; i&lt;=n; i++) </span><br><span class="line">    ans = max(ans, f[i]);</span><br></pre></td></tr></table></figure>
+<h4 id="贪心-二分">贪心+二分</h4>
+<p><strong>“low 数组存的是‘长度=i 的上升子序列’目前能达到的最小末尾。”</strong><br>
+每次来一个新数 x，只做两件事：</p>
+<ol>
+<li>能让最长的更长，就加长；</li>
+<li>不能加长，就把“第一个 ≥x 的末尾”替换成 x，给后面留机会。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;int&gt; low;            // 槽</span><br><span class="line">for (int x : a) &#123;</span><br><span class="line">    auto it = lower_bound(low.begin(), low.end(), x);</span><br><span class="line">    if (it == low.end()) low.push_back(x);   // 更长</span><br><span class="line">    else *it = x;                            // 换更小末尾</span><br><span class="line">&#125;</span><br><span class="line">return low.size();          // LIS 长度</span><br></pre></td></tr></table></figure>
+<h3 id="全排列">全排列</h3>
+<p>排列和组合的区别：</p>
+<p>看问题是否和顺序有关。有关就是排列，无关就是组合。</p>
+<p>排列：比如说排队问题甲乙两人排队，先排甲，那么站法是甲乙，先排乙，那么站法乙甲，是两种不同的排法，和先排还是后排的顺序有关，所以是A(2,2)=2种</p>
+<p>组合：从甲乙两个球中选2个，无论先取甲，在是先取乙，取到的两个球都是甲和乙两个球，和先后取的顺序无关，所以是C(2,2)=1种</p>
+<p>方法一：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">void dfs(int dep)           // dep: 当前要填第 dep 个位置（从 0 开始）</span><br><span class="line">&#123;</span><br><span class="line">    if (dep == n) &#123;                                 // 填完最后一位</span><br><span class="line">        for (int i = 0; i &lt; n; ++i) printf(&quot;%d &quot;, path[i]);</span><br><span class="line">        puts(&quot;&quot;);</span><br><span class="line">        return;</span><br><span class="line">    &#125;</span><br><span class="line">    for (int i = 0; i &lt; n; ++i)                     // 按顺序选元素</span><br><span class="line">        if (!used[i]) &#123;                               // 未被使用</span><br><span class="line">            used[i] = true;</span><br><span class="line">            path[dep] = a[i];                         // 填到当前位</span><br><span class="line">            dfs(dep + 1);                             // 递归填下一位</span><br><span class="line">            used[i] = false;                          // 回溯</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">    cin &gt;&gt; n;</span><br><span class="line">    for (int i = 0; i &lt; n; ++i) cin &gt;&gt; a[i];          // 读入元素</span><br><span class="line">    sort(a, a + n);                                   // 保证字典序</span><br><span class="line">    dfs(0);                                           // 从第 0 位开始填</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="平方根">平方根</h3>
+<p>输入一个非负实数 <code>n</code>，输出它的平方根，保留6位小数。</p>
+<ol>
+<li>确定二分范围：对于 <code>sqrt(n)</code>，范围可以设为 <code>[0, max(n, 1)]</code>。</li>
+<li>设定精度：比如 <code>1e-8</code>，当区间长度小于这个值时停止。</li>
+<li>二分逼近：中间值 <code>mid</code> 的平方与 <code>n</code> 比较，调整左右边界。</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">double sqrt_newton(double n) &#123;</span><br><span class="line">    if (n == 0) return 0;</span><br><span class="line">    double left = 0, right = n &gt; 1 ? n : 1;</span><br><span class="line">    double mid, eps = 1e-8;</span><br><span class="line"></span><br><span class="line">    while (right - left &gt; eps) &#123;</span><br><span class="line">        mid = (left + right) / 2;</span><br><span class="line">        if (mid * mid &lt; n)</span><br><span class="line">            left = mid;</span><br><span class="line">        else</span><br><span class="line">            right = mid;</span><br><span class="line">    &#125;</span><br><span class="line">    return (left + right) / 2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="背包DP">背包DP</h3>
+<h4 id="0-1背包">0-1背包</h4>
+<p>n种物品，每种一个</p>
+<table>
+<thead>
+<tr>
+<th>物品</th>
+<th>重量</th>
+<th>价值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>物品0</td>
+<td>1</td>
+<td>15</td>
+</tr>
+<tr>
+<td>物品1</td>
+<td>3</td>
+<td>20</td>
+</tr>
+<tr>
+<td>物品2</td>
+<td>4</td>
+<td>30</td>
+</tr>
+</tbody>
+</table>
+<p>问背包能背的物品最⼤价值是多少？</p>
+<p>有两个⽅向推出来<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>p</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>j</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">dp[i][j]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">p</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mclose">]</span></span></span></span>，</p>
+<p><strong>不放物品i</strong>：由<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>p</mi><mo stretchy="false">[</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>j</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">dp[i - 1][j]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">p</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mclose">]</span></span></span></span>推出，即背包容量为j，⾥⾯不放物品i的最⼤价值，此时<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>p</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>j</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">dp[i][j]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">p</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mclose">]</span></span></span></span>就是<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>p</mi><mo stretchy="false">[</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>j</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">dp[i - 1][j]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">p</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mclose">]</span></span></span></span>。(其实就是当物品i的重量⼤于背包j的重量时，物品i⽆法放进背包中，所以背包内的价值依然和前⾯相同。)</p>
+<p><strong>放物品i</strong>：由<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>p</mi><mo stretchy="false">[</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>j</mi><mo>−</mo><mi>w</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">dp[i - 1][j - weight[i]]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">p</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord mathnormal">e</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">h</span><span class="mord mathnormal">t</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]]</span></span></span></span>推出，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>p</mi><mo stretchy="false">[</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>j</mi><mo>−</mo><mi>w</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">dp[i - 1][j - weight[i]] </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">p</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord mathnormal">e</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">h</span><span class="mord mathnormal">t</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]]</span></span></span></span>为背包容量为<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>j</mi><mo>−</mo><mi>w</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">j - weight[i]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.854em;vertical-align:-0.1944em;"></span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord mathnormal">e</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">h</span><span class="mord mathnormal">t</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]</span></span></span></span>的时候不放物品i的最</p>
+<p>⼤价值，那么<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>p</mi><mo stretchy="false">[</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>j</mi><mo>−</mo><mi>w</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo stretchy="false">]</mo><mo>+</mo><mi>v</mi><mi>a</mi><mi>l</mi><mi>u</mi><mi>e</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">dp[i - 1][j - weight[i]] + value[i]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">p</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord mathnormal">e</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">h</span><span class="mord mathnormal">t</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]]</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">u</span><span class="mord mathnormal">e</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]</span></span></span></span> （物品i的价值），就是背包放物品i得到的最⼤价值</p>
+<p>所以递归公式：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>p</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>j</mi><mo stretchy="false">]</mo><mo>=</mo><mi>m</mi><mi>a</mi><mi>x</mi><mo stretchy="false">(</mo><mi>d</mi><mi>p</mi><mo stretchy="false">[</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>j</mi><mo stretchy="false">]</mo><mo separator="true">,</mo><mi>d</mi><mi>p</mi><mo stretchy="false">[</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>j</mi><mo>−</mo><mi>w</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo stretchy="false">]</mo><mo>+</mo><mi>v</mi><mi>a</mi><mi>l</mi><mi>u</mi><mi>e</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex"> dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - weight[i]] + value[i])</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">p</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">ma</span><span class="mord mathnormal">x</span><span class="mopen">(</span><span class="mord mathnormal">d</span><span class="mord mathnormal">p</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">p</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord mathnormal">e</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">h</span><span class="mord mathnormal">t</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]]</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">u</span><span class="mord mathnormal">e</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">])</span></span></span></span>​</p>
+<p>初始化参考如下，其余非边界初始化随意。</p>
+<p><img src="1.png" alt=""></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 初始化 dp</span><br><span class="line">vector&lt;vector&lt;int&gt;&gt; dp(weight.size(), vector&lt;int&gt;(bagweight + 1, 0));</span><br><span class="line">for (int j = weight[0]; j &lt;= bagweight; j++) &#123;</span><br><span class="line">     dp[0][j] = value[0];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>先遍历 物品还是先遍历背包重量呢？</strong></p>
+<p><strong>都可以！！ 但是先遍历物品更好理解</strong>。</p>
+<p><strong>先遍历物品</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// weight数组的⼤⼩ 就是物品个数</span><br><span class="line">for(int i = 1; i &lt; weight.size(); i++) &#123; // 遍历物品</span><br><span class="line">    for(int j = 0; j &lt;= bagweight; j++) &#123; // 遍历背包容量</span><br><span class="line">    if (j &lt; weight[i]) dp[i][j] = dp[i - 1][j];	//比较当前物品能否背装下，装不下-&gt;不装</span><br><span class="line">        else dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - weight[i]] + value[i]);</span><br><span class="line">        // 装得下，就比较装下之后的价值和不装的价值比较。</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; dp[weight.size() - 1][bagweight] &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+<p><strong>先遍历背包，再遍历物品，也是可以的！（注意我这⾥使⽤的⼆维dp数组）</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// weight数组的⼤⼩ 就是物品个数</span><br><span class="line">for(int j = 0; j &lt;= bagweight; j++) &#123; // 遍历背包容量</span><br><span class="line">     for(int i = 1; i &lt; weight.size(); i++) &#123; // 遍历物品</span><br><span class="line">         if (j &lt; weight[i]) dp[i][j] = dp[i - 1][j];</span><br><span class="line">         else dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - weight[i]] + value[i]);</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; dp[weight.size() - 1][bagweight] &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+<p>这里之所以能先遍历背包或者先遍历物品都可以</p>
+<p>我们根据递推方程可以知道，要求<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>p</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>j</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">dp[i][j]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">p</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mclose">]</span></span></span></span>就需要先知道对应的<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>p</mi><mo stretchy="false">[</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>j</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">dp[i-1][j]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">p</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mclose">]</span></span></span></span>以及<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>p</mi><mo stretchy="false">[</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>j</mi><mo>−</mo><mi>w</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo stretchy="false">]</mo><mo>+</mo><mi>v</mi><mi>a</mi><mi>l</mi><mi>u</mi><mi>e</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">dp[i - 1][j - weight[i]] + value[i]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">p</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord mathnormal">e</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">h</span><span class="mord mathnormal">t</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]]</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">u</span><span class="mord mathnormal">e</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]</span></span></span></span>如图中的红色所示，</p>
+<p>先遍历物品就如绿色箭头方向，可以获得对应的<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>p</mi><mo stretchy="false">[</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>j</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">dp[i-1][j]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">p</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mclose">]</span></span></span></span>以及<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>p</mi><mo stretchy="false">[</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>j</mi><mo>−</mo><mi>w</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo stretchy="false">]</mo><mo>+</mo><mi>v</mi><mi>a</mi><mi>l</mi><mi>u</mi><mi>e</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">dp[i - 1][j - weight[i]] + value[i]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">p</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord mathnormal">e</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">h</span><span class="mord mathnormal">t</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]]</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">u</span><span class="mord mathnormal">e</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]</span></span></span></span>，如果先遍历背包，就如黄色箭头，也能在<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>p</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>j</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">dp[i][j]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">p</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mclose">]</span></span></span></span>之前获得<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>p</mi><mo stretchy="false">[</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>j</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">dp[i-1][j]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">p</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mclose">]</span></span></span></span>以及<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>p</mi><mo stretchy="false">[</mo><mi>i</mi><mo>−</mo><mn>1</mn><mo stretchy="false">]</mo><mo stretchy="false">[</mo><mi>j</mi><mo>−</mo><mi>w</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo stretchy="false">]</mo><mo>+</mo><mi>v</mi><mi>a</mi><mi>l</mi><mi>u</mi><mi>e</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">dp[i - 1][j - weight[i]] + value[i]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">p</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1</span><span class="mclose">]</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord mathnormal">e</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">h</span><span class="mord mathnormal">t</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]]</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">u</span><span class="mord mathnormal">e</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]</span></span></span></span>。所以这里无论先遍历物品还是先遍历背包都是可以的。</p>
+<p><img src="2.png" alt=""></p>
+<p><strong>⼀维dp数组（滚动数组）</strong></p>
+<p>在⼀维dp数组中，dp[j]表示：容量为j的背包，所背的物品价值可以最⼤为dp[j]。</p>
+<p>递推公式：<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>d</mi><mi>p</mi><mo stretchy="false">[</mo><mi>j</mi><mo stretchy="false">]</mo><mo>=</mo><mi>m</mi><mi>a</mi><mi>x</mi><mo stretchy="false">(</mo><mi>d</mi><mi>p</mi><mo stretchy="false">[</mo><mi>j</mi><mo stretchy="false">]</mo><mo separator="true">,</mo><mi>d</mi><mi>p</mi><mo stretchy="false">[</mo><mi>j</mi><mo>−</mo><mi>w</mi><mi>e</mi><mi>i</mi><mi>g</mi><mi>h</mi><mi>t</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo stretchy="false">]</mo><mo>+</mo><mi>v</mi><mi>a</mi><mi>l</mi><mi>u</mi><mi>e</mi><mo stretchy="false">[</mo><mi>i</mi><mo stretchy="false">]</mo><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">dp[j] = max(dp[j], dp[j - weight[i]] + value[i])</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">p</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">ma</span><span class="mord mathnormal">x</span><span class="mopen">(</span><span class="mord mathnormal">d</span><span class="mord mathnormal">p</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mclose">]</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.1667em;"></span><span class="mord mathnormal">d</span><span class="mord mathnormal">p</span><span class="mopen">[</span><span class="mord mathnormal" style="margin-right:0.05724em;">j</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.02691em;">w</span><span class="mord mathnormal">e</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">g</span><span class="mord mathnormal">h</span><span class="mord mathnormal">t</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">]]</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.01968em;">l</span><span class="mord mathnormal">u</span><span class="mord mathnormal">e</span><span class="mopen">[</span><span class="mord mathnormal">i</span><span class="mclose">])</span></span></span></span></p>
+<p>⼀维dp数组遍历顺序</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for(int i = 0; i &lt; weight.size(); i++) &#123; // 遍历物品</span><br><span class="line">     for(int j = bagWeight; j &gt;= weight[i]; j--) &#123; // 遍历背包容量</span><br><span class="line">         dp[j] = max(dp[j], dp[j - weight[i]] + value[i]);</span><br><span class="line">         &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>倒序遍历是为了保证物品i只被放⼊⼀次！</strong>。但如果⼀旦正序遍历了，那么物品0就会被重复加⼊多次！</p>
+<ul>
+<li>dp[1] = dp[1 - weight[0]] + value[0] = 15</li>
+<li>dp[2] = dp[2 - weight[0]] + value[0] = 30</li>
+</ul>
+<h4 id="完全背包">完全背包</h4>
+<p>n种物品，每种物品无限多</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// weight数组的⼤⼩ 就是物品个数</span><br><span class="line">for(int i = 1; i &lt; weight.size(); i++) &#123; // 遍历物品</span><br><span class="line">    for(int j = 0; j &lt;= bagweight; j++) &#123; // 遍历背包容量</span><br><span class="line">    dp[i][j] = dp[i - 1][j];	//先继承上一层的状态</span><br><span class="line">    if (j &lt; weight[i])//比较当前物品能否背装下，装不下-&gt;不装</span><br><span class="line">        else dp[i][j] = max(dp[i][j], dp[i][j - weight[i]] + value[i]);</span><br><span class="line">        // 装得下，就比较装下之后的价值和不装的价值比较。这里由于一个物品可以加多次，所以这里就在同一层叠加比较</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; dp[weight.size() - 1][bagweight] &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+<p>滚动数组</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// weight数组的⼤⼩ 就是物品个数</span><br><span class="line">for(int i = 1; i &lt; weight.size(); i++) &#123; // 遍历物品</span><br><span class="line">for(int j = weigh[i]; j &lt;= bagweight; j++) &#123; // j直接从当前物品重量开始叠加</span><br><span class="line">    dp[j] = max(dp[j],dp[j-weigh[i]]+value[i]);	//先继承上一层的状态</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">cout &lt;&lt; dp[weight.size() - 1]&lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+<h4 id="多重背包">多重背包</h4>
+<p>n种物品，每种物品个数各不相同</p>
+<p>将其展开，这就转成了⼀个01背包问题了，且每个物品只⽤⼀次。或者在遍历物品时加上一个for循环，遍历个数</p>
+<table>
+<thead>
+<tr>
+<th>物品</th>
+<th>重量</th>
+<th>价值</th>
+<th>数量</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>物品0</td>
+<td>1</td>
+<td>15</td>
+<td>1</td>
+</tr>
+<tr>
+<td>物品0</td>
+<td>1</td>
+<td>15</td>
+<td>1</td>
+</tr>
+<tr>
+<td>物品1</td>
+<td>3</td>
+<td>20</td>
+<td>1</td>
+</tr>
+<tr>
+<td>物品1</td>
+<td>3</td>
+<td>20</td>
+<td>1</td>
+</tr>
+<tr>
+<td>物品1</td>
+<td>3</td>
+<td>20</td>
+<td>1</td>
+</tr>
+<tr>
+<td>物品2</td>
+<td>4</td>
+<td>30</td>
+<td>1</td>
+</tr>
+<tr>
+<td>物品2</td>
+<td>4</td>
+<td>30</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;int&gt; weight = &#123;1, 3, 4&#125;;</span><br><span class="line">vector&lt;int&gt; value = &#123;15, 20, 30&#125;;</span><br><span class="line">vector&lt;int&gt; nums = &#123;2, 3, 2&#125;;</span><br><span class="line">int bagWeight = 10;</span><br><span class="line">for (int i = 0; i &lt; nums.size(); i++) &#123;</span><br><span class="line">    while (nums[i] &gt; 1) &#123; // nums[i]保留到1，把其他物品都展开</span><br><span class="line">        weight.push_back(weight[i]);</span><br><span class="line">        value.push_back(value[i]);</span><br><span class="line">        nums[i]--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">vector&lt;int&gt; dp(bagWeight + 1, 0);</span><br><span class="line">for(int i = 0; i &lt; weight.size(); i++) &#123; // 遍历物品</span><br><span class="line">    for(int j = bagWeight; j &gt;= weight[i]; j--) &#123; // 遍历背包容量</span><br><span class="line">        dp[j] = max(dp[j], dp[j - weight[i]] + value[i]);</span><br><span class="line">     &#125;</span><br><span class="line">    for (int j = 0; j &lt;= bagWeight; j++) &#123;</span><br><span class="line">        cout &lt;&lt; dp[j] &lt;&lt; &quot; &quot;;</span><br><span class="line">         &#125;</span><br><span class="line">    cout &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line">cout &lt;&lt; dp[bagWeight] &lt;&lt; endl;</span><br></pre></td></tr></table></figure>
+<p>引用自：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_50285142/article/details/114026148">1</a>, <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1fA4y1o715?spm_id_from=333.788.videopod.sections&amp;vd_source=1c80e72337ca7060a34db5d6363e7503">2</a>, <a target="_blank" rel="noopener" href="https://blog.csdn.net/pl0321/article/details/115507286">3</a>, <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/669840689">4</a>, <a target="_blank" rel="noopener" href="https://notes.kamacoder.com/">5</a>,</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://hmk26421.github.io">Mk Hao</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://hmk26421.github.io/2025/09/07/brushup/">https://hmk26421.github.io/2025/09/07/brushup/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://hmk26421.github.io" target="_blank">Hmk's blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="../../../../tags/%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">学习记录</a></div><div class="post-share"><div class="social-share" data-image="../../../../img/profile.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="../../../08/21/int-rd-pa/" title="精读论文"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">精读论文</div></div><div class="info-2"><div class="info-item-1">论文精读 8月13日，我向北京邮电大学的郑老师发送了一封保研自荐邮件，当天便看到邮件显示“已读”，却迟迟没有收到回复。当时心里难免有些失落，默默觉得以自己的目前的条件，或许还达不到北邮的要求，便暂时将这件事搁置了。 没曾想，8月16日我在西安参加物联网设计大赛区域赛时，突然收到了郑老师课题组发来的考核通知，这份意外之喜让我又惊又喜。原本计划在区域赛结束后在西安游玩的安排直接取消，毕竟这次保研考核的机会显然更为珍贵。于是我立刻调整行程，在8月17日开启了“极限回校”模式，马不停蹄地赶回学校准备接下来的考核。 精读过程 本文提出无人机辅助LoRa网络方向性感知信道接入新方法PreLoRa，旨在最大化地空链路吞吐量。通过研究RSS与收发机相对位置的关联，构建量化方向性对地空链路影响的环空模型；基于该模型，PreLoRa可预测无人机网关短期内各配置区域驻留时间，并周期性为地面节点分配最优传输配置计划。评估显示，相较基线方法，其数据收集吞吐量最高提升65.5%。   吞吐量（throughput）： 公式1： 吞吐量=并发数/平均响应时间 公式2：...</div></div></div></a></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><a class="pagination-related" href="../../../08/21/int-rd-pa/" title="精读论文"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-center"><div class="info-1"><div class="info-item-1"><i class="far fa-calendar-alt fa-fw"></i> 2025-08-21</div><div class="info-item-2">精读论文</div></div><div class="info-2"><div class="info-item-1">论文精读 8月13日，我向北京邮电大学的郑老师发送了一封保研自荐邮件，当天便看到邮件显示“已读”，却迟迟没有收到回复。当时心里难免有些失落，默默觉得以自己的目前的条件，或许还达不到北邮的要求，便暂时将这件事搁置了。 没曾想，8月16日我在西安参加物联网设计大赛区域赛时，突然收到了郑老师课题组发来的考核通知，这份意外之喜让我又惊又喜。原本计划在区域赛结束后在西安游玩的安排直接取消，毕竟这次保研考核的机会显然更为珍贵。于是我立刻调整行程，在8月17日开启了“极限回校”模式，马不停蹄地赶回学校准备接下来的考核。 精读过程 本文提出无人机辅助LoRa网络方向性感知信道接入新方法PreLoRa，旨在最大化地空链路吞吐量。通过研究RSS与收发机相对位置的关联，构建量化方向性对地空链路影响的环空模型；基于该模型，PreLoRa可预测无人机网关短期内各配置区域驻留时间，并周期性为地面节点分配最优传输配置计划。评估显示，相较基线方法，其数据收集吞吐量最高提升65.5%。   吞吐量（throughput）： 公式1： 吞吐量=并发数/平均响应时间 公式2：...</div></div></div></a></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="../img/profile.jpg" onerror="this.onerror=null;this.src='../img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Mk Hao</div><div class="author-info-description"></div><div class="site-data"><a href="../archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="../tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/hmk26421"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/hmk26421" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="../hmk26421@163.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a><a class="social-icon" href="../2822926434" target="_blank" title="QQ"><i class="fa-brands fa-qq" style="color: #24292e;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎来到我的博客</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">机试准备复习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E5%9B%9E%E9%A1%BE%E5%BF%85%E5%A4%87%E7%9F%A5%E8%AF%86"><span class="toc-number">1.1.</span> <span class="toc-text">快速回顾必备知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA"><span class="toc-number">1.1.1.</span> <span class="toc-text">输入输出</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#getline"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">getline()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#getchar"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">getchar()</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#for%E5%BE%AA%E7%8E%AF%E9%81%8D%E5%8E%86"><span class="toc-number">1.1.1.3.</span> <span class="toc-text">for循环遍历</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C"><span class="toc-number">1.1.2.</span> <span class="toc-text">字符串操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%BF%A1%E6%81%AF%E3%80%81%E7%B4%A2%E5%BC%95"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">查询字符串信息、索引</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8B%BC%E6%8E%A5%E3%80%81%E6%AF%94%E8%BE%83%E7%AD%89%E6%93%8D%E4%BD%9C"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">拼接、比较等操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9-string-%E7%9A%84%E6%93%8D%E4%BD%9C"><span class="toc-number">1.1.2.3.</span> <span class="toc-text">修改 string 的操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#string-%E6%90%9C%E7%B4%A2%E6%93%8D%E4%BD%9C"><span class="toc-number">1.1.2.4.</span> <span class="toc-text">string 搜索操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#string%E3%80%81char-%E5%9E%8B%E4%B8%8E%E6%95%B0%E5%80%BC%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.1.2.5.</span> <span class="toc-text">string、char 型与数值的转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%8D%E8%BD%AC"><span class="toc-number">1.1.2.6.</span> <span class="toc-text">字符串反转</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STL"><span class="toc-number">1.1.3.</span> <span class="toc-text">STL</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#vector"><span class="toc-number">1.1.3.1.</span> <span class="toc-text">vector</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#queue"><span class="toc-number">1.1.3.2.</span> <span class="toc-text">queue</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#set"><span class="toc-number">1.1.3.3.</span> <span class="toc-text">set</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#map"><span class="toc-number">1.1.3.4.</span> <span class="toc-text">map</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-1-2-%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="toc-number">1.1.3.5.</span> <span class="toc-text">6.1.2 初始化</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%B2%E5%AD%A6%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-number">1.2.</span> <span class="toc-text">已学知识点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%B7%E9%87%8F%E6%95%B0%E6%8D%AE"><span class="toc-number">1.2.1.</span> <span class="toc-text">海量数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%88%86"><span class="toc-number">1.2.2.</span> <span class="toc-text">二分</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BFS"><span class="toc-number">1.2.3.</span> <span class="toc-text">BFS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DFS-%E6%B7%B1%E6%90%9C"><span class="toc-number">1.2.4.</span> <span class="toc-text">DFS 深搜</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DP%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92-dynamic-programming-DP"><span class="toc-number">1.2.5.</span> <span class="toc-text">DP动态规划(dynamic programming,DP)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B4%AA%E5%BF%83-greedy-algorithm%EF%BC%8CGA"><span class="toc-number">1.2.6.</span> <span class="toc-text">贪心(greedy algorithm，GA)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E7%B2%BE%E5%BA%A6"><span class="toc-number">1.2.7.</span> <span class="toc-text">高精度</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E6%8E%A5%E6%94%B6%E5%92%8C%E5%AD%98%E8%B4%AE%EF%BC%9A%E5%BD%93%E8%BE%93%E5%85%A5%E7%9A%84%E6%95%B0%E5%BE%88%E9%95%BF%E6%97%B6%EF%BC%9A"><span class="toc-number">1.2.7.1.</span> <span class="toc-text">数据的接收和存贮：当输入的数很长时：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AB%98%E7%B2%BE%E5%BA%A6%E5%8A%A0%E6%B3%95"><span class="toc-number">1.2.7.2.</span> <span class="toc-text">高精度加法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AB%98%E7%B2%BE%E5%BA%A6%E5%87%8F%E6%B3%95"><span class="toc-number">1.2.7.3.</span> <span class="toc-text">高精度减法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%AB%98%E7%B2%BE%E5%BA%A6%E4%B9%98%E6%B3%95"><span class="toc-number">1.2.7.4.</span> <span class="toc-text">高精度乘法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A4%E6%96%AD%E7%B4%A0%E6%95%B0"><span class="toc-number">1.2.8.</span> <span class="toc-text">判断素数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E5%B9%82"><span class="toc-number">1.2.9.</span> <span class="toc-text">快速幂</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95"><span class="toc-number">1.2.10.</span> <span class="toc-text">排序算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F%EF%BC%88Merge-Sort%EF%BC%89"><span class="toc-number">1.2.10.1.</span> <span class="toc-text">归并排序（Merge Sort）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%EF%BC%88Quick-Sort%EF%BC%89"><span class="toc-number">1.2.10.2.</span> <span class="toc-text">快速排序（Quick Sort）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%8F%E5%85%B8%E9%A2%98%E7%9B%AE"><span class="toc-number">1.3.</span> <span class="toc-text">经典题目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%88%AC%E6%A5%BC%E6%A2%AF"><span class="toc-number">1.3.1.</span> <span class="toc-text">爬楼梯</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E9%95%BF%E4%B8%8A%E5%8D%87%E5%AD%90%E5%BA%8F%E5%88%97%EF%BC%88LIS%EF%BC%89"><span class="toc-number">1.3.2.</span> <span class="toc-text">最长上升子序列（LIS）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%99%AE%E9%80%9ADP"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">普通DP</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B4%AA%E5%BF%83-%E4%BA%8C%E5%88%86"><span class="toc-number">1.3.2.2.</span> <span class="toc-text">贪心+二分</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E6%8E%92%E5%88%97"><span class="toc-number">1.3.3.</span> <span class="toc-text">全排列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E6%96%B9%E6%A0%B9"><span class="toc-number">1.3.4.</span> <span class="toc-text">平方根</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%83%8C%E5%8C%85DP"><span class="toc-number">1.3.5.</span> <span class="toc-text">背包DP</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#0-1%E8%83%8C%E5%8C%85"><span class="toc-number">1.3.5.1.</span> <span class="toc-text">0-1背包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85"><span class="toc-number">1.3.5.2.</span> <span class="toc-text">完全背包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85"><span class="toc-number">1.3.5.3.</span> <span class="toc-text">多重背包</span></a></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="../2025/09/07/brushup/" title="brushup">brushup</a><time datetime="2025-09-07T13:49:05.000Z" title="发表于 2025-09-07 21:49:05">2025-09-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="../2025/08/21/int-rd-pa/" title="精读论文">精读论文</a><time datetime="2025-08-21T03:42:00.000Z" title="发表于 2025-08-21 11:42:00">2025-08-21</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="../2025/08/04/web/" title="搭建一个外贸电商网站">搭建一个外贸电商网站</a><time datetime="2025-08-04T11:36:53.000Z" title="发表于 2025-08-04 19:36:53">2025-08-04</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="../2025/06/11/DM/" title="DM复习">DM复习</a><time datetime="2025-06-11T15:41:52.000Z" title="发表于 2025-06-11 23:41:52">2025-06-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="../2025/05/04/first/" title="Ubuntu使用过程的一些问题以及解决">Ubuntu使用过程的一些问题以及解决</a><time datetime="2025-05-04T12:56:48.000Z" title="发表于 2025-05-04 20:56:48">2025-05-04</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2025 By Mk Hao</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.0-b1</a></span></div><div class="footer_custom_text">Hi, welcome to my <a target="_blank" rel="noopener" href="https://butterfly.js.org/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="../../../../js/utils.js"></script><script src="../../../../js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/medium-zoom/dist/medium-zoom.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="text-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章..." type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="../js/search/local-search.js"></script></div></div></body></html>
